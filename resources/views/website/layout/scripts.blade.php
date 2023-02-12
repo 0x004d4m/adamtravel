@@ -1,0 +1,9 @@
+<script src="{{url('template/js/bootstrap.bundle.min.js')}}"></script>
+<script src="{{url('template/js/tiny-slider.js')}}"></script>
+<script src="{{url('template/js/aos.js')}}"></script>
+<script src="{{url('template/js/navbar.js')}}"></script>
+<script src="{{url('template/js/counter.js')}}"></script>
+<script src="{{url('template/js/rellax.js')}}"></script>
+<script src="{{url('template/js/flatpickr.js')}}"></script>
+<script src="{{url('template/js/glightbox.min.js')}}"></script>
+<script src="{{url('template/js/custom.js')}}"></script>
