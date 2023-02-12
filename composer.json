@@ -6,7 +6,6 @@
     "license": "MIT",
     "require": {
         "php": "^8.0.2",
-        "backpack/backupmanager": "^4.0",
         "backpack/crud": "^5.4",
         "backpack/langfilemanager": "^4.1",
         "backpack/logmanager": "^4.0",
