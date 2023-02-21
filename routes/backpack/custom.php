@@ -29,4 +29,20 @@ Route::group([
     Route::crud('partner', 'PartnerCrudController');
     Route::crud('term', 'TermCrudController');
     Route::crud('site', 'SiteCrudController');
+    Route::crud('season', 'SeasonCrudController');
+    Route::crud('hotel', 'HotelCrudController');
+    Route::crud('room-bed', 'RoomBedCrudController');
+    Route::crud('room-type', 'RoomTypeCrudController');
+    Route::crud('star', 'StarCrudController');
+    Route::crud('guide', 'GuideCrudController');
+    Route::crud('group-category', 'GroupCategoryCrudController');
+    Route::crud('meal', 'MealCrudController');
+    Route::crud('city', 'CityCrudController');
+    Route::crud('currency', 'CurrencyCrudController');
+    Route::crud('inclusion', 'InclusionCrudController');
+    Route::crud('provided-service', 'ProvidedServiceCrudController');
+    Route::crud('vehicle-type', 'VehicleTypeCrudController');
+    Route::crud('transportation-service', 'TransportationServiceCrudController');
+    Route::crud('transportation-company', 'TransportationCompanyCrudController');
+    Route::crud('resturant', 'ResturantCrudController');
 }); // this should be the absolute last line of this file

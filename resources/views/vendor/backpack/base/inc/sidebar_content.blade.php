@@ -38,4 +38,26 @@
     </ul>
 </li>
 
-<li class='nav-item'><a class='nav-link' href='{{ backpack_url('log') }}'><i class='nav-icon la la-terminal'></i> Logs</a></li> 
+<li class="nav-item nav-dropdown">
+    <a class="nav-link nav-dropdown-toggle" href="#"><i class="nav-icon la la-globe"></i> Defaults</a>
+    <ul class="nav-dropdown-items">
+        <li class="nav-item"><a class="nav-link" href="{{ backpack_url('season') }}"><i class="nav-icon la la-question"></i> Seasons</a></li>
+        <li class="nav-item"><a class="nav-link" href="{{ backpack_url('hotel') }}"><i class="nav-icon la la-question"></i> Hotels</a></li>
+        <li class="nav-item"><a class="nav-link" href="{{ backpack_url('room-bed') }}"><i class="nav-icon la la-question"></i> Room beds</a></li>
+        <li class="nav-item"><a class="nav-link" href="{{ backpack_url('room-type') }}"><i class="nav-icon la la-question"></i> Room types</a></li>
+        <li class="nav-item"><a class="nav-link" href="{{ backpack_url('star') }}"><i class="nav-icon la la-question"></i> Stars</a></li>
+        <li class="nav-item"><a class="nav-link" href="{{ backpack_url('guide') }}"><i class="nav-icon la la-question"></i> Guides</a></li>
+        <li class="nav-item"><a class="nav-link" href="{{ backpack_url('group-category') }}"><i class="nav-icon la la-question"></i> Group categories</a></li>
+        <li class="nav-item"><a class="nav-link" href="{{ backpack_url('meal') }}"><i class="nav-icon la la-question"></i> Meals</a></li>
+        <li class="nav-item"><a class="nav-link" href="{{ backpack_url('city') }}"><i class="nav-icon la la-question"></i> Cities</a></li>
+        <li class="nav-item"><a class="nav-link" href="{{ backpack_url('currency') }}"><i class="nav-icon la la-question"></i> Currencies</a></li>
+        <li class="nav-item"><a class="nav-link" href="{{ backpack_url('inclusion') }}"><i class="nav-icon la la-question"></i> Inclusions</a></li>
+        <li class="nav-item"><a class="nav-link" href="{{ backpack_url('provided-service') }}"><i class="nav-icon la la-question"></i> Provided services</a></li>
+        <li class="nav-item"><a class="nav-link" href="{{ backpack_url('resturant') }}"><i class="nav-icon la la-question"></i> Resturants</a></li>
+        <li class="nav-item"><a class="nav-link" href="{{ backpack_url('vehicle-type') }}"><i class="nav-icon la la-question"></i> Vehicle types</a></li>
+        <li class="nav-item"><a class="nav-link" href="{{ backpack_url('transportation-service') }}"><i class="nav-icon la la-question"></i> Transportation services</a></li>
+        <li class="nav-item"><a class="nav-link" href="{{ backpack_url('transportation-company') }}"><i class="nav-icon la la-question"></i> Transportation companies</a></li>
+    </ul>
+</li>
+
+<li class='nav-item'><a class='nav-link' href='{{ backpack_url('log') }}'><i class='nav-icon la la-terminal'></i> Logs</a></li>
