@@ -22,16 +22,32 @@ class CityCrudController extends CrudController
 
     protected function setupListOperation()
     {
-        $this->crud->column('name');
-        $this->crud->column('created_at');
-        $this->crud->column('updated_at');
+        $this->crud->column('code')->type('text');
+        $this->crud->column('name')->type('text');
+        $this->crud->setColumnDetails('country_id',[
+            'label' => "Country",
+            'type' => "select",
+            'name' => 'country_id',
+            'entity' => 'country',
+            'attribute' => "name",
+            'model' => 'App\Models\Country'
+        ]);
     }
 
     protected function setupCreateOperation()
     {
         $this->crud->setValidation(CityRequest::class);
 
-        $this->crud->field('name');
+        $this->crud->field('code')->type('text');
+        $this->crud->field('name')->type('text');
+        $this->crud->addField([
+            'label' => "Country",
+            'type' => "relationship",
+            'name' => 'country_id',
+            'entity' => 'country',
+            'attribute' => "name",
+            'model' => 'App\Models\Country'
+        ]);
     }
 
     protected function setupUpdateOperation()

@@ -22,16 +22,18 @@ class TransportationServiceCrudController extends CrudController
 
     protected function setupListOperation()
     {
-        $this->crud->column('name');
-        $this->crud->column('created_at');
-        $this->crud->column('updated_at');
+        $this->crud->column('name')->type('text');
+        $this->crud->column('kilo_meters')->type('text');
+        $this->crud->column('is_extra_mileage')->type('boolean');
     }
 
     protected function setupCreateOperation()
     {
         $this->crud->setValidation(TransportationServiceRequest::class);
 
-        $this->crud->field('name');
+        $this->crud->field('name')->type('text');
+        $this->crud->field('kilo_meters')->type('text');
+        $this->crud->field('is_extra_mileage')->type('boolean');
     }
 
     protected function setupUpdateOperation()

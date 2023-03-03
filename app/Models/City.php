@@ -10,14 +10,24 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class City extends Model
 {
-    use CrudTrait, HasFactory, SoftDeletes, HasTranslations;
+    use CrudTrait;
+    use HasFactory;
+    use HasTranslations;
+    use SoftDeletes;
 
     protected $table = 'cities';
     protected $guarded = ['id'];
     protected $fillable = [
+        'code',
         'name',
+        'country_id',
     ];
     protected $translatable = [
         'name',
     ];
+
+    public function country()
+    {
+        return $this->belongsTo(Country::class);
+    }
 }

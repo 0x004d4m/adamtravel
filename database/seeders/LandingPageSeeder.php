@@ -18,12 +18,12 @@ class LandingPageSeeder extends Seeder
             ["id"=>6,"title"=>'{"en":"Contact Us"}',"description"=>'{"en":"A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth."}',"image"=>"template/images/hero_3.jpg","video"=>"https://www.youtube.com/watch?v=5n-e6lOhVq0"],
             ["id"=>7,"title"=>'{"en":"Blog"}',"description"=>'{"en":"A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth."}',"image"=>"template/images/hero_3.jpg","video"=>"https://www.youtube.com/watch?v=5n-e6lOhVq0"],
         ]);
-        DB::table('services')->insert([
-            ["id"=>1,"title"=>'{"en":"Tourism"}',"description"=>'{"en":"Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts."}',"image"=>"template/images/svg/01.svg"],
-            ["id"=>2,"title"=>'{"en":"Package Tours"}',"description"=>'{"en":"Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts."}',"image"=>"template/images/svg/02.svg"],
-            ["id"=>3,"title"=>'{"en":"Travel Insurance"}',"description"=>'{"en":"Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts."}',"image"=>"template/images/svg/03.svg"],
-            ["id"=>4,"title"=>'{"en":"Airport Lounge Access"}',"description"=>'{"en":"Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts."}',"image"=>"template/images/svg/04.svg"],
-        ]);
+        // DB::table('services')->insert([
+        //     ["id"=>1,"title"=>'{"en":"Tourism"}',"description"=>'{"en":"Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts."}',"image"=>"template/images/svg/01.svg"],
+        //     ["id"=>2,"title"=>'{"en":"Package Tours"}',"description"=>'{"en":"Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts."}',"image"=>"template/images/svg/02.svg"],
+        //     ["id"=>3,"title"=>'{"en":"Travel Insurance"}',"description"=>'{"en":"Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts."}',"image"=>"template/images/svg/03.svg"],
+        //     ["id"=>4,"title"=>'{"en":"Airport Lounge Access"}',"description"=>'{"en":"Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts."}',"image"=>"template/images/svg/04.svg"],
+        // ]);
         DB::table('destinations')->insert([
             ["id"=>1,"title"=>'{"en":"Paradise Beach, Palawan Island"}',"description"=>'{"en":"Maldives, Repbulic Maldives"}',"image"=>"template/images/img-1.jpg"],
             ["id"=>2,"title"=>'{"en":"Paradise Beach, Palawan Island"}',"description"=>'{"en":"Maldives, Repbulic Maldives"}',"image"=>"template/images/img-2.jpg"],

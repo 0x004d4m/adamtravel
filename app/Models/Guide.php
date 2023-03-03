@@ -10,7 +10,10 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Guide extends Model
 {
-    use CrudTrait, HasFactory, SoftDeletes, HasTranslations;
+    use CrudTrait;
+    use HasFactory;
+    use HasTranslations;
+    use SoftDeletes;
 
     protected $table = 'guides';
     protected $guarded = ['id'];
@@ -18,8 +21,30 @@ class Guide extends Model
         'name',
         'daily_rate',
         'accommodation_rate',
+        'tel',
+        'fax',
+        'mobile',
+        'emergency_number',
+        'email',
+        'website',
+        'contact',
+        'p_o_box',
+        'address',
+        'notes',
+        'country_id',
+        'city_id',
     ];
     protected $translatable = [
         'name',
     ];
+
+    public function country()
+    {
+        return $this->belongsTo(Country::class);
+    }
+
+    public function city()
+    {
+        return $this->belongsTo(City::class);
+    }
 }

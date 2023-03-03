@@ -22,27 +22,22 @@ class InclusionCrudController extends CrudController
 
     protected function setupListOperation()
     {
-        $this->crud->column('name');
-        $this->crud->column('is_inclusion');
-        $this->crud->column('created_at');
-        $this->crud->column('updated_at');
+        $this->crud->column('name')->type('text');
+        $this->crud->column('is_inclusion')->type('boolean');
+        $this->crud->column('is_default')->type('boolean');
     }
 
     protected function setupCreateOperation()
     {
         $this->crud->setValidation(InclusionRequest::class);
 
-        $this->crud->field('name');
-        $this->crud->field('is_inclusion');
+        $this->crud->field('name')->type('text');
+        $this->crud->field('is_inclusion')->type('boolean');
+        $this->crud->field('is_default')->type('boolean');
     }
 
     protected function setupUpdateOperation()
     {
         $this->setupCreateOperation();
-    }
-
-    protected function setupShowOperation()
-    {
-        $this->setupListOperation();
     }
 }

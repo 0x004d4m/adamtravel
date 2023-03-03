@@ -10,7 +10,10 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Star extends Model
 {
-    use CrudTrait, HasFactory, SoftDeletes, HasTranslations;
+    use CrudTrait;
+    use HasFactory;
+    use HasTranslations;
+    use SoftDeletes;
 
     protected $table = 'stars';
     protected $guarded = ['id'];

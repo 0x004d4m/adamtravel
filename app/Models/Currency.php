@@ -10,7 +10,10 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Currency extends Model
 {
-    use CrudTrait, HasFactory, SoftDeletes, HasTranslations;
+    use CrudTrait;
+    use HasFactory;
+    use HasTranslations;
+    use SoftDeletes;
 
     protected $table = 'currencies';
     protected $guarded = ['id'];

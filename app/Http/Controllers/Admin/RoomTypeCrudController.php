@@ -22,16 +22,14 @@ class RoomTypeCrudController extends CrudController
 
     protected function setupListOperation()
     {
-        $this->crud->column('name');
-        $this->crud->column('created_at');
-        $this->crud->column('updated_at');
+        $this->crud->column('name')->type('text');
     }
 
     protected function setupCreateOperation()
     {
         $this->crud->setValidation(RoomTypeRequest::class);
 
-        $this->crud->field('name');
+        $this->crud->field('name')->type('text');
     }
 
     protected function setupUpdateOperation()

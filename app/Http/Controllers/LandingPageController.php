@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Destination;
 use App\Models\Fqa;
 use App\Models\Hero;
+use App\Models\LandingpageService;
 use App\Models\Member;
 use App\Models\Post;
 use App\Models\Section;
@@ -28,7 +29,7 @@ class LandingPageController extends Controller
     public function welcome(Request $request){
         return view('welcome',[
             "Posts"=>Post::limit(4)->get(),
-            "Services"=>Service::limit(4)->get(),
+            "Services"=>LandingpageService::limit(4)->get(),
             "Destinations"=>Destination::get(),
             "Testimonials"=>Testimonial::get(),
             "Fqas"=>Fqa::get(),
@@ -41,7 +42,7 @@ class LandingPageController extends Controller
 
     public function about(Request $request){
         return view('about', [
-            "Services"=>Service::limit(4)->get(),
+            "Services"=>LandingpageService::limit(4)->get(),
             "Destinations"=>Destination::get(),
             "Members"=>Member::get(),
             "Hero"=>Hero::where('id',2)->first(),

@@ -10,12 +10,17 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class TransportationService extends Model
 {
-    use CrudTrait, HasFactory, SoftDeletes, HasTranslations;
+    use CrudTrait;
+    use HasFactory;
+    use HasTranslations;
+    use SoftDeletes;
 
     protected $table = 'transportation_services';
     protected $guarded = ['id'];
     protected $fillable = [
         'name',
+        'kilo_meters',
+        'is_extra_mileage',
     ];
     protected $translatable = [
         'name',

@@ -22,20 +22,18 @@ class CurrencyCrudController extends CrudController
 
     protected function setupListOperation()
     {
-        $this->crud->column('name');
-        $this->crud->column('symbol');
-        $this->crud->column('exchange_rate_to_usd');
-        $this->crud->column('created_at');
-        $this->crud->column('updated_at');
+        $this->crud->column('name')->type('text');
+        $this->crud->column('symbol')->type('text');
+        $this->crud->column('exchange_rate_to_usd')->type('text');
     }
 
     protected function setupCreateOperation()
     {
         $this->crud->setValidation(CurrencyRequest::class);
 
-        $this->crud->field('name');
-        $this->crud->field('symbol');
-        $this->crud->field('exchange_rate_to_usd');
+        $this->crud->field('name')->type('text');
+        $this->crud->field('symbol')->type('text');
+        $this->crud->field('exchange_rate_to_usd')->type('text');
     }
 
     protected function setupUpdateOperation()

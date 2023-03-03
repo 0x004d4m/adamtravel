@@ -10,13 +10,17 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Inclusion extends Model
 {
-    use CrudTrait, HasFactory, SoftDeletes, HasTranslations;
+    use CrudTrait;
+    use HasFactory;
+    use HasTranslations;
+    use SoftDeletes;
 
     protected $table = 'inclusions';
     protected $guarded = ['id'];
     protected $fillable = [
         'name',
         'is_inclusion',
+        'is_default',
     ];
     protected $translatable = [
         'name',
