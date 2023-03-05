@@ -25,7 +25,10 @@ class HotelContractOccupancyRequest extends FormRequest
     public function rules()
     {
         return [
-            // 'name' => 'required|min:5|max:255'
+            'hotel_contract_id' => 'required',
+            'room_type_id' => 'required',
+            'max_adults' => 'required|decimal:0,3',
+            'max_children' => 'required|decimal:0,3',
         ];
     }
 

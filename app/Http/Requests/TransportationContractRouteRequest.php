@@ -25,7 +25,10 @@ class TransportationContractRouteRequest extends FormRequest
     public function rules()
     {
         return [
-            // 'name' => 'required|min:5|max:255'
+            'transportation_contract_id' => 'required',
+            'route_id' => 'required',
+            'car_price' => 'required|decimal:0,3',
+            'van_price' => 'required|decimal:0,3',
         ];
     }
 

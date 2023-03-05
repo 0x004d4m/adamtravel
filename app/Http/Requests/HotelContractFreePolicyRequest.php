@@ -25,7 +25,10 @@ class HotelContractFreePolicyRequest extends FormRequest
     public function rules()
     {
         return [
-            // 'name' => 'required|min:5|max:255'
+            'number_of_free_pax' => 'required|numeric',
+            'every' => 'required|numeric',
+            'maximum' => 'required|numeric',
+            'hotel_contract_id' => 'required',
         ];
     }
 

@@ -25,7 +25,11 @@ class RestaurantContractMealRequest extends FormRequest
     public function rules()
     {
         return [
-            // 'name' => 'required|min:5|max:255'
+            'restaurant_contract_id' => 'required',
+            'restaurant_meal_id' => 'required',
+            'adult_cost' => 'required|decimal:0,3',
+            'child_cost' => 'required|decimal:0,3',
+            'description' => 'required',
         ];
     }
 

@@ -25,7 +25,9 @@ class TransportationContractServicePriceRequest extends FormRequest
     public function rules()
     {
         return [
-            // 'name' => 'required|min:5|max:255'
+            'transportation_contract_service_id' => 'required',
+            'transportation_type_id' => 'required',
+            'price' => 'required|decimal:0,3',
         ];
     }
 

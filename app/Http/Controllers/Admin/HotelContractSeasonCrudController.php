@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Requests\HotelContractSupplementRequest;
+use App\Http\Requests\HotelContractSeasonRequest;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 
-class HotelContractSupplementCrudController extends CrudController
+class HotelContractSeasonCrudController extends CrudController
 {
     use \Backpack\CRUD\app\Http\Controllers\Operations\ListOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\CreateOperation;
@@ -15,14 +15,13 @@ class HotelContractSupplementCrudController extends CrudController
 
     public function setup()
     {
-        $this->crud->setModel(\App\Models\HotelContractSupplement::class);
-        $this->crud->setRoute(config('backpack.base.route_prefix') . '/hotel-contract-supplement');
-        $this->crud->setEntityNameStrings(__('hotel contract supplement'), __('hotel contract supplements'));
+        $this->crud->setModel(\App\Models\HotelContractSeason::class);
+        $this->crud->setRoute(config('backpack.base.route_prefix') . '/hotel-contract-season');
+        $this->crud->setEntityNameStrings(__('hotel contract season'), __('hotel contract seasons'));
     }
 
     protected function setupListOperation()
     {
-        $this->crud->column('name')->type('text');
         $this->crud->addColumn('hotel_contract_id',[
             'label' => "Hotel Contract",
             'type' => "select",
@@ -31,30 +30,38 @@ class HotelContractSupplementCrudController extends CrudController
             'attribute' => "name",
             'model' => 'App\Models\HotelContract'
         ]);
+        $this->crud->addColumn('season_id',[
+            'label' => "Season",
+            'type' => "select",
+            'name' => 'season_id',
+            'entity' => 'season',
+            'attribute' => "name",
+            'model' => 'App\Models\Season'
+        ]);
         $this->crud->column('starting_date')->type('date');
         $this->crud->column('ending_date')->type('date');
-        $this->crud->column('price')->type('text');
-        $this->crud->column('is_optional')->label('optional')->type('boolean');
         $this->crud->column('notes')->type('textarea');
     }
 
     protected function setupCreateOperation()
     {
-        $this->crud->setValidation(HotelContractSupplementRequest::class);
-        $this->crud->removeSaveAction('save_and_preview');
-        $this->crud->removeSaveAction('save_and_edit');
-        $this->crud->removeSaveAction('save_and_new');
+        $this->crud->setValidation(HotelContractSeasonRequest::class);
 
-        $this->crud->field('name')->type('text');
         $this->crud->addField([
             'type' => "hidden",
             'name' => 'hotel_contract_id',
             'default' => $_GET['hotel_contract_id'] ?? null
         ]);
+        $this->crud->addField([
+            'label' => "Season",
+            'type' => "relationship",
+            'name' => 'season_id',
+            'entity' => 'season',
+            'attribute' => "name",
+            'model' => 'App\Models\Season'
+        ]);
         $this->crud->field('starting_date')->type('date');
         $this->crud->field('ending_date')->type('date');
-        $this->crud->field('price')->type('text');
-        $this->crud->field('is_optional')->label('optional')->type('boolean');
         $this->crud->field('notes')->type('textarea');
     }
 

@@ -25,7 +25,9 @@ class CurrencyRequest extends FormRequest
     public function rules()
     {
         return [
-            // 'name' => 'required|min:5|max:255'
+            'name' => 'required',
+            'symbol' => 'required',
+            'exchange_rate_to_usd' => 'required|decimal:0,3',
         ];
     }
 

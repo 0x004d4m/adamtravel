@@ -25,7 +25,15 @@ class TransportationPlanRequest extends FormRequest
     public function rules()
     {
         return [
-            // 'name' => 'required|min:5|max:255'
+            'transportation_type_id' => 'required',
+            'transportation_company_id' => 'required',
+            'name' => 'required',
+            'people_less_than' => 'required|numeric',
+            'people_greater_than' => 'required|numeric',
+            'pax' => 'required|numeric',
+            'free_pax_in_dbl' => 'required|numeric',
+            'free_pax_in_sgl' => 'required|numeric',
+            'number_of_vehicles' => 'required|numeric',
         ];
     }
 

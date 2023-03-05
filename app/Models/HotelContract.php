@@ -62,4 +62,9 @@ class HotelContract extends Model
     {
         return $this->hasMany(HotelContractOccupancy::class);
     }
+
+    public function hotelContractSeasons()
+    {
+        return $this->hasMany(HotelContractSeason::class);
+    }
 }

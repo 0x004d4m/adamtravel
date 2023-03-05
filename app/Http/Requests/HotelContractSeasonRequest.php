@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class InclusionRequest extends FormRequest
+class HotelContractSeasonRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -25,8 +25,10 @@ class InclusionRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required',
-            'inclusion_default_id' => 'required',
+            'hotel_contract_id' => 'required',
+            'season_id' => 'required',
+            'starting_date' => 'required',
+            'ending_date' => 'required',
         ];
     }
 

@@ -20,6 +20,7 @@ return new class extends Migration
             $table->foreign('hotel_contract_id')->references('id')->on('hotel_contracts');
             $table->date('starting_date');
             $table->date('ending_date');
+            $table->double('price');
             $table->boolean('is_optional')->default(false);
             $table->text('notes')->nullable();
             $table->timestamps();

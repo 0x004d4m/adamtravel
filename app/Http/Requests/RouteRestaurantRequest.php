@@ -25,7 +25,9 @@ class RouteRestaurantRequest extends FormRequest
     public function rules()
     {
         return [
-            // 'name' => 'required|min:5|max:255'
+            'route_id' => 'required',
+            'restaurant_id' => 'required',
+            'restaurant_contract_meal_id' => 'required',
         ];
     }
 

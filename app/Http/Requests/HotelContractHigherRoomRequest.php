@@ -25,7 +25,12 @@ class HotelContractHigherRoomRequest extends FormRequest
     public function rules()
     {
         return [
-            // 'name' => 'required|min:5|max:255'
+            'hotel_contract_id' => 'required',
+            'room_type_id' => 'required',
+            'season_id' => 'required',
+            'single' => 'required|decimal:0,3',
+            'double' => 'required|decimal:0,3',
+            'triple' => 'required|decimal:0,3',
         ];
     }
 

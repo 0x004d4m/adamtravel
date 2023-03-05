@@ -25,7 +25,15 @@ class HotelContractRateRequest extends FormRequest
     public function rules()
     {
         return [
-            // 'name' => 'required|min:5|max:255'
+            'hotel_contract_id' => 'required',
+            'season_id' => 'required',
+            'double' => 'required|decimal:0,3',
+            'single_supplement' => 'required|decimal:0,3',
+            'third_person' => 'required|decimal:0,3',
+            'breakfast' => 'required|decimal:0,3',
+            'lunch' => 'required|decimal:0,3',
+            'dinner' => 'required|decimal:0,3',
+            'all_inc' => 'required|decimal:0,3',
         ];
     }
 

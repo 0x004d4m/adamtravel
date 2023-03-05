@@ -25,7 +25,10 @@ class EntranceRequest extends FormRequest
     public function rules()
     {
         return [
-            // 'name' => 'required|min:5|max:255'
+            'name' => 'required',
+            'city_id' => 'required',
+            'adult_rate' => 'required|decimal:0,3',
+            'child_rate' => 'required|decimal:0,3',
         ];
     }
 

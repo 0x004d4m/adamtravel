@@ -25,7 +25,11 @@ class HotelContractSupplementRequest extends FormRequest
     public function rules()
     {
         return [
-            // 'name' => 'required|min:5|max:255'
+            'name' => 'required',
+            'hotel_contract_id' => 'required',
+            'starting_date' => 'required',
+            'ending_date' => 'required',
+            'price' => 'required|decimal:0,3',
         ];
     }
 

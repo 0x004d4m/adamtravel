@@ -3,35 +3,33 @@
 namespace App\Models;
 
 use Backpack\CRUD\app\Models\Traits\CrudTrait;
-use Backpack\CRUD\app\Models\Traits\SpatieTranslatable\HasTranslations;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class HotelContractSupplement extends Model
+class HotelContractSeason extends Model
 {
     use CrudTrait;
     use HasFactory;
-    use HasTranslations;
     use SoftDeletes;
 
-    protected $table = 'hotel_contract_supplements';
+    protected $table = 'hotel_contract_seasons';
     protected $guarded = ['id'];
     protected $fillable = [
-        'name',
         'hotel_contract_id',
+        'season_id',
         'starting_date',
         'ending_date',
-        'is_optional',
-        'price',
         'notes',
-    ];
-    protected $translatable = [
-        'name'
     ];
 
     public function hotelContract()
     {
         return $this->belongsTo(HotelContract::class);
+    }
+
+    public function season()
+    {
+        return $this->belongsTo(Season::class);
     }
 }

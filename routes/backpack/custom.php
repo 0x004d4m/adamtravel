@@ -87,4 +87,5 @@ Route::group([
     Route::crud('hotel-contract-free-policy', 'HotelContractFreePolicyCrudController');
     Route::crud('hotel-contract-note', 'HotelContractNoteCrudController');
     Route::crud('inclusion-default', 'InclusionDefaultCrudController');
+    Route::crud('hotel-contract-season', 'HotelContractSeasonCrudController');
 }); // this should be the absolute last line of this file

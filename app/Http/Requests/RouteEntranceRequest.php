@@ -25,7 +25,8 @@ class RouteEntranceRequest extends FormRequest
     public function rules()
     {
         return [
-            // 'name' => 'required|min:5|max:255'
+            'route_id' => 'required',
+            'city_id' => 'required',
         ];
     }
 

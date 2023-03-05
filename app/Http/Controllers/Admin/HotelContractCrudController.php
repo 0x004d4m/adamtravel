@@ -69,6 +69,34 @@ class HotelContractCrudController extends CrudController
 
         Widget::add([
             'type'           => 'relation_table',
+            'name'           => 'hotelContractSeasons',
+            'label'          => 'Seasonalities',
+            'backpack_crud'  => 'hotel-contract-season',
+            'relation_attribute' => 'hotel_contract_id',
+            'button_create' => true,
+            'button_delete' => true,
+            'columns' => [
+                [
+                    'label' => 'season',
+                    'name'  => 'season.name',
+                ],
+                [
+                    'label' => 'starting_date',
+                    'name'  => 'starting_date',
+                ],
+                [
+                    'label' => 'ending_date',
+                    'name'  => 'ending_date',
+                ],
+                [
+                    'label' => 'notes',
+                    'name'  => 'notes',
+                ],
+            ],
+        ])->to('after_content');
+
+        Widget::add([
+            'type'           => 'relation_table',
             'name'           => 'hotelContractRates',
             'label'          => 'Rates',
             'backpack_crud'  => 'hotel-contract-rate',
@@ -215,6 +243,10 @@ class HotelContractCrudController extends CrudController
                 [
                     'label' => 'name',
                     'name'  => 'name',
+                ],
+                [
+                    'label' => 'price',
+                    'name'  => 'price',
                 ],
                 [
                     'label' => 'starting_date',

@@ -25,7 +25,10 @@ class RestaurantContractRequest extends FormRequest
     public function rules()
     {
         return [
-            // 'name' => 'required|min:5|max:255'
+            'name' => 'required',
+            'starting_date' => 'required',
+            'ending_date' => 'required',
+            'restaurant_id' => 'required',
         ];
     }
 
