@@ -80,9 +80,9 @@ class HotelContractHigherRoomCrudController extends CrudController
             'attribute' => "name",
             'model' => 'App\Models\Season'
         ]);
-        $this->crud->field('single')->type('text');
-        $this->crud->field('double')->type('text');
-        $this->crud->field('triple')->type('text');
+        $this->crud->field('single')->default(0)->type('text');
+        $this->crud->field('double')->default(0)->type('text');
+        $this->crud->field('triple')->default(0)->type('text');
         $this->crud->field('notes')->type('textarea');
     }
 

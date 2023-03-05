@@ -51,8 +51,8 @@ class EntranceCrudController extends CrudController
             'attribute' => "name",
             'model' => 'App\Models\City'
         ]);
-        $this->crud->field('adult_rate')->type('text');
-        $this->crud->field('child_rate')->type('text');
+        $this->crud->field('adult_rate')->default(0)->type('text');
+        $this->crud->field('child_rate')->default(0)->type('text');
     }
 
     protected function setupUpdateOperation()

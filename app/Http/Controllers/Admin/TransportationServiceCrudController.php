@@ -35,7 +35,7 @@ class TransportationServiceCrudController extends CrudController
         $this->crud->removeSaveAction('save_and_new');
 
         $this->crud->field('name')->type('text');
-        $this->crud->field('kilo_meters')->type('text');
+        $this->crud->field('kilo_meters')->default(0)->type('text');
         $this->crud->field('is_extra_mileage')->label('extra mileage')->type('boolean');
     }
 

@@ -57,8 +57,8 @@ class TransportationContractCrudController extends CrudController
         ]);
         $this->crud->field('starting_date')->type('date');
         $this->crud->field('ending_date')->type('date');
-        $this->crud->field('driver_accommodation')->type('text');
-        $this->crud->field('commission')->type('text');
+        $this->crud->field('driver_accommodation')->default(0)->type('text');
+        $this->crud->field('commission')->default(0)->type('text');
         $this->crud->field('is_prices_by_route')->label('prices by route')->type('boolean');
     }
 

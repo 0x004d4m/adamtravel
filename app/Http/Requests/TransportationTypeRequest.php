@@ -25,7 +25,8 @@ class TransportationTypeRequest extends FormRequest
     public function rules()
     {
         return [
-            '*' => 'required',
+            'name' => 'required',
+            'seats' => 'required|numeric',
         ];
     }
 

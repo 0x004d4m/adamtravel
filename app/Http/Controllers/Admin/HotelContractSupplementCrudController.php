@@ -53,7 +53,7 @@ class HotelContractSupplementCrudController extends CrudController
         ]);
         $this->crud->field('starting_date')->type('date');
         $this->crud->field('ending_date')->type('date');
-        $this->crud->field('price')->type('text');
+        $this->crud->field('price')->default(0)->type('text');
         $this->crud->field('is_optional')->label('optional')->type('boolean');
         $this->crud->field('notes')->type('textarea');
     }

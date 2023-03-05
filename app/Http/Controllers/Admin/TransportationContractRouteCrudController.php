@@ -62,8 +62,8 @@ class TransportationContractRouteCrudController extends CrudController
             'attribute' => "name",
             'model' => 'App\Models\Route'
         ]);
-        $this->crud->field('car_price')->type('text');
-        $this->crud->field('van_price')->type('text');
+        $this->crud->field('car_price')->default(0)->type('text');
+        $this->crud->field('van_price')->default(0)->type('text');
     }
 
     protected function setupUpdateOperation()

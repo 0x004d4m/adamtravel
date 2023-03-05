@@ -28,7 +28,7 @@ class HotelContractFreePolicyCrudController extends CrudController
         $this->crud->column('every')->type('text');
         $this->crud->column('is_pax')->label('pax')->type('boolean');
         $this->crud->column('is_room')->label('room')->type('boolean');
-        $this->crud->column('maximum')->type('boolean');
+        $this->crud->column('maximum')->type('text');
         $this->crud->addColumn('hotel_contract_id',[
             'label' => "Hotel Contract",
             'type' => "select",
@@ -46,13 +46,13 @@ class HotelContractFreePolicyCrudController extends CrudController
         $this->crud->removeSaveAction('save_and_edit');
         $this->crud->removeSaveAction('save_and_new');
 
-        $this->crud->field('number_of_free_pax')->type('text');
+        $this->crud->field('number_of_free_pax')->default(0)->type('text');
         $this->crud->field('is_single_room')->label('single room')->type('boolean');
         $this->crud->field('is_sharing_double_room')->label('sharing double room')->type('boolean');
-        $this->crud->field('every')->type('text');
+        $this->crud->field('every')->default(0)->type('text');
         $this->crud->field('is_pax')->label('pax')->type('boolean');
         $this->crud->field('is_room')->label('room')->type('boolean');
-        $this->crud->field('maximum')->type('boolean');
+        $this->crud->field('maximum')->default(0)->type('text');
         $this->crud->addField([
             'type' => "hidden",
             'name' => 'hotel_contract_id',

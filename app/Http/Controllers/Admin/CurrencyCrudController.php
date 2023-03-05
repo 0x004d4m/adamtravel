@@ -36,7 +36,7 @@ class CurrencyCrudController extends CrudController
 
         $this->crud->field('name')->type('text');
         $this->crud->field('symbol')->type('text');
-        $this->crud->field('exchange_rate_to_usd')->type('text');
+        $this->crud->field('exchange_rate_to_usd')->default(0)->type('text');
     }
 
     protected function setupUpdateOperation()

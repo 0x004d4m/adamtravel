@@ -63,8 +63,8 @@ class RestaurantContractMealCrudController extends CrudController
             'attribute' => "name",
             'model' => 'App\Models\RestaurantMeal'
         ]);
-        $this->crud->field('adult_cost')->type('text');
-        $this->crud->field('child_cost')->type('text');
+        $this->crud->field('adult_cost')->default(0)->type('text');
+        $this->crud->field('child_cost')->default(0)->type('text');
         $this->crud->field('description')->type('textarea');
     }
 

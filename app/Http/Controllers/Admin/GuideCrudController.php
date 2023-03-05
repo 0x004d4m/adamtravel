@@ -61,8 +61,8 @@ class GuideCrudController extends CrudController
         $this->crud->removeSaveAction('save_and_new');
 
         $this->crud->field('name')->type('text');
-        $this->crud->field('daily_rate')->type('text');
-        $this->crud->field('accommodation_rate')->type('text');
+        $this->crud->field('daily_rate')->default(0)->type('text');
+        $this->crud->field('accommodation_rate')->default(0)->type('text');
         $this->crud->field('tel')->type('text');
         $this->crud->field('fax')->type('text');
         $this->crud->field('mobile')->type('text');

@@ -55,7 +55,7 @@ class HotelContractCrudController extends CrudController
         ]);
         $this->crud->field('starting_date')->type('date');
         $this->crud->field('ending_date')->type('date');
-        $this->crud->field('group_rate')->type('text');
+        $this->crud->field('group_rate')->default(0)->type('text');
     }
 
     protected function setupUpdateOperation()

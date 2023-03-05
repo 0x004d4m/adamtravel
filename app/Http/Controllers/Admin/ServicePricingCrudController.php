@@ -48,10 +48,10 @@ class ServicePricingCrudController extends CrudController
             'name' => 'service_id',
             'default' => $_GET['service_id'] ?? null
         ]);
-        $this->crud->field('pax_less_than')->label('PAX >=')->type('text');
-        $this->crud->field('pax_greater_than')->label('PAX <=')->type('text');
-        $this->crud->field('price_per_adult')->type('text');
-        $this->crud->field('price_per_child')->type('text');
+        $this->crud->field('pax_less_than')->default(0)->label('PAX >=')->type('text');
+        $this->crud->field('pax_greater_than')->default(0)->label('PAX <=')->type('text');
+        $this->crud->field('price_per_adult')->default(0)->type('text');
+        $this->crud->field('price_per_child')->default(0)->type('text');
     }
 
     protected function setupUpdateOperation()

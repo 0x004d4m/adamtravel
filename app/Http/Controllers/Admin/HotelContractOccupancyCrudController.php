@@ -63,8 +63,8 @@ class HotelContractOccupancyCrudController extends CrudController
             'attribute' => "name",
             'model' => 'App\Models\RoomType'
         ]);
-        $this->crud->field('max_adults')->type('text');
-        $this->crud->field('max_children')->type('text');
+        $this->crud->field('max_adults')->default(0)->type('text');
+        $this->crud->field('max_children')->default(0)->type('text');
         $this->crud->field('notes')->type('textarea');
     }
 

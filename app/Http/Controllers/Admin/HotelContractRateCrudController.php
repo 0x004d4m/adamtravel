@@ -67,13 +67,13 @@ class HotelContractRateCrudController extends CrudController
             'attribute' => "name",
             'model' => 'App\Models\Season'
         ]);
-        $this->crud->field('double')->label('Double Room')->type('text');
-        $this->crud->field('single_supplement')->type('text');
-        $this->crud->field('third_person')->label('Third Person/Extra Bed')->type('text');
-        $this->crud->field('breakfast')->type('text');
-        $this->crud->field('lunch')->type('text');
-        $this->crud->field('dinner')->type('text');
-        $this->crud->field('all_inc')->type('text');
+        $this->crud->field('double')->label('Double Room')->default(0)->type('text');
+        $this->crud->field('single_supplement')->default(0)->type('text');
+        $this->crud->field('third_person')->default(0)->label('Third Person/Extra Bed')->type('text');
+        $this->crud->field('breakfast')->default(0)->type('text');
+        $this->crud->field('lunch')->default(0)->type('text');
+        $this->crud->field('dinner')->default(0)->type('text');
+        $this->crud->field('all_inc')->default(0)->type('text');
     }
 
     protected function setupUpdateOperation()

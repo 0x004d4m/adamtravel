@@ -36,7 +36,6 @@ class RouteCrudController extends CrudController
             'attribute' => "name",
             'model' => 'App\Models\TransportationService'
         ]);
-        $this->crud->column('has_driver_accommodation')->type('boolean');
         $this->crud->addColumn('guide_id',[
             'label' => "Guide",
             'type' => "select",
@@ -46,6 +45,7 @@ class RouteCrudController extends CrudController
             'model' => 'App\Models\Guide'
         ]);
         $this->crud->column('has_guide_accommodation')->type('boolean');
+        $this->crud->column('has_driver_accommodation')->type('boolean');
         $this->crud->addColumn('route_group_id',[
             'label' => "Route Group",
             'type' => "select",
@@ -82,7 +82,7 @@ class RouteCrudController extends CrudController
         $this->crud->field('number')->type('text');
         $this->crud->field('name')->type('text');
         $this->crud->field('description')->type('textarea');
-        $this->crud->field('kilometers')->type('text');
+        $this->crud->field('kilometers')->default(0)->type('text');
         $this->crud->field('image')->type('image');
         $this->crud->addField([
             'label' => "Transportation Service",

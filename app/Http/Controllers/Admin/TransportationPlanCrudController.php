@@ -58,11 +58,11 @@ class TransportationPlanCrudController extends CrudController
 
         $this->crud->field('is_default')->label('default')->type('boolean');
         $this->crud->field('name')->type('text');
-        $this->crud->field('people_less_than')->type('text');
-        $this->crud->field('people_greater_than')->type('text');
-        $this->crud->field('pax')->type('text');
-        $this->crud->field('free_pax_in_dbl')->type('text');
-        $this->crud->field('free_pax_in_sgl')->type('text');
+        $this->crud->field('people_less_than')->default(0)->type('text');
+        $this->crud->field('people_greater_than')->default(0)->type('text');
+        $this->crud->field('pax')->default(0)->type('text');
+        $this->crud->field('free_pax_in_dbl')->default(0)->type('text');
+        $this->crud->field('free_pax_in_sgl')->default(0)->type('text');
         $this->crud->addField([
             'label' => "Transportation Type",
             'type' => "relationship",
@@ -71,7 +71,7 @@ class TransportationPlanCrudController extends CrudController
             'attribute' => "name",
             'model' => 'App\Models\TransportationType'
         ]);
-        $this->crud->field('number_of_vehicles');
+        $this->crud->field('number_of_vehicles')->default(0);
         $this->crud->addField([
             'label' => "Transportation Company",
             'type' => "relationship",

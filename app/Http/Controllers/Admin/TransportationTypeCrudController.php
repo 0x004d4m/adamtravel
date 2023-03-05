@@ -34,7 +34,7 @@ class TransportationTypeCrudController extends CrudController
         $this->crud->removeSaveAction('save_and_new');
 
         $this->crud->field('name')->type('text');
-        $this->crud->field('seats')->type('text');
+        $this->crud->field('seats')->default(0)->type('text');
     }
 
     protected function setupUpdateOperation()
