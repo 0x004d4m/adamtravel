@@ -16,6 +16,8 @@ return new class extends Migration
         Schema::create('hotels', function (Blueprint $table) {
             $table->id();
             $table->json('name');
+            $table->unsignedBigInteger('star_id');
+            $table->foreign('star_id')->references('id')->on('stars');
             $table->string('tel')->nullable();
             $table->string('fax')->nullable();
             $table->string('mobile')->nullable();

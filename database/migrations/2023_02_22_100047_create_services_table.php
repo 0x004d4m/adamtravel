@@ -30,8 +30,12 @@ return new class extends Migration
             $table->foreign('currency_id')->references('id')->on('currencies');
             $table->boolean('is_excursion')->default(false);
             $table->boolean('is_per_group')->default(false);
+            $table->integer('group_price_per_adult')->nullable();
+            $table->integer('group_price_per_child')->nullable();
             $table->boolean('is_per_person')->default(false);
             $table->boolean('is_per_capacity')->default(false);
+            $table->integer('capacity')->nullable();
+            // $table->integer('capacity_price_per_child')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

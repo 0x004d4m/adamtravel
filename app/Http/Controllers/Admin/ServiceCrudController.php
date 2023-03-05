@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Requests\ServiceRequest;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
+use Backpack\CRUD\app\Library\Widget;
 
 class ServiceCrudController extends CrudController
 {
@@ -27,7 +28,7 @@ class ServiceCrudController extends CrudController
         $this->crud->column('visit_duration')->type('text');
         $this->crud->column('opening_hours')->type('text');
         $this->crud->column('website')->type('text');
-        $this->crud->setColumnDetails('country_id',[
+        $this->crud->addColumn('country_id',[
             'label' => "Country",
             'type' => "select",
             'name' => 'country_id',
@@ -35,7 +36,7 @@ class ServiceCrudController extends CrudController
             'attribute' => "name",
             'model' => 'App\Models\Country'
         ]);
-        $this->crud->setColumnDetails('city_id',[
+        $this->crud->addColumn('city_id',[
             'label' => "City",
             'type' => "select",
             'name' => 'city_id',
@@ -43,7 +44,7 @@ class ServiceCrudController extends CrudController
             'attribute' => "name",
             'model' => 'App\Models\City'
         ]);
-        $this->crud->setColumnDetails('service_classification_id',[
+        $this->crud->addColumn('service_classification_id',[
             'label' => "Service Classification",
             'type' => "select",
             'name' => 'service_classification_id',
@@ -51,7 +52,7 @@ class ServiceCrudController extends CrudController
             'attribute' => "name",
             'model' => 'App\Models\ServiceClassification'
         ]);
-        $this->crud->setColumnDetails('currency_id',[
+        $this->crud->addColumn('currency_id',[
             'label' => "Currency",
             'type' => "select",
             'name' => 'currency_id',
@@ -68,6 +69,9 @@ class ServiceCrudController extends CrudController
     protected function setupCreateOperation()
     {
         $this->crud->setValidation(ServiceRequest::class);
+        $this->crud->removeSaveAction('save_and_back');
+        $this->crud->removeSaveAction('save_and_edit');
+        $this->crud->removeSaveAction('save_and_new');
 
         $this->crud->field('name')->type('text');
         $this->crud->field('description')->type('textarea');
@@ -120,5 +124,33 @@ class ServiceCrudController extends CrudController
     protected function setupShowOperation()
     {
         $this->setupListOperation();
+
+        Widget::add([
+            'type'           => 'relation_table',
+            'name'           => 'ServicePricings',
+            'label'          => 'Prices',
+            'backpack_crud'  => 'service-pricing',
+            'relation_attribute' => 'service_id',
+            'button_create' => true,
+            'button_delete' => true,
+            'columns' => [
+                [
+                    'label' => 'pax >=',
+                    'name'  => 'pax_less_than',
+                ],
+                [
+                    'label' => 'pax <=',
+                    'name'  => 'pax_greater_than',
+                ],
+                [
+                    'label' => 'per adult',
+                    'name'  => 'price_per_adult',
+                ],
+                [
+                    'label' => 'per child',
+                    'name'  => 'price_per_child',
+                ]
+            ],
+        ])->to('after_content');
     }
 }

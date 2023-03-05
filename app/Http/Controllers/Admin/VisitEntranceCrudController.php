@@ -22,7 +22,7 @@ class VisitEntranceCrudController extends CrudController
 
     protected function setupListOperation()
     {
-        $this->crud->setColumnDetails('visit_id',[
+        $this->crud->addColumn('visit_id',[
             'label' => "Visit",
             'type' => "select",
             'name' => 'visit_id',
@@ -30,7 +30,7 @@ class VisitEntranceCrudController extends CrudController
             'attribute' => "name",
             'model' => 'App\Models\Visit'
         ]);
-        $this->crud->setColumnDetails('city_id',[
+        $this->crud->addColumn('city_id',[
             'label' => "City",
             'type' => "select",
             'name' => 'city_id',
@@ -38,7 +38,7 @@ class VisitEntranceCrudController extends CrudController
             'attribute' => "name",
             'model' => 'App\Models\City'
         ]);
-        $this->crud->setColumnDetails('entrance_id',[
+        $this->crud->addColumn('entrance_id',[
             'label' => "Entrance",
             'type' => "select",
             'name' => 'entrance_id',
@@ -51,14 +51,14 @@ class VisitEntranceCrudController extends CrudController
     protected function setupCreateOperation()
     {
         $this->crud->setValidation(VisitEntranceRequest::class);
+        $this->crud->removeSaveAction('save_and_preview');
+        $this->crud->removeSaveAction('save_and_edit');
+        $this->crud->removeSaveAction('save_and_new');
 
         $this->crud->addField([
-            'label' => "Visit",
-            'type' => "relationship",
+            'type' => "hidden",
             'name' => 'visit_id',
-            'entity' => 'visit',
-            'attribute' => "name",
-            'model' => 'App\Models\Visit'
+            'default' => $_GET['visit_id'] ?? null
         ]);
         $this->crud->addField([
             'label' => "City",

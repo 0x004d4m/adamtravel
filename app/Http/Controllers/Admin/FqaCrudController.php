@@ -38,6 +38,9 @@ class FqaCrudController extends CrudController
     protected function setupCreateOperation()
     {
         $this->crud->setValidation(FqaRequest::class);
+        $this->crud->removeSaveAction('save_and_preview');
+        $this->crud->removeSaveAction('save_and_edit');
+        $this->crud->removeSaveAction('save_and_new');
 
         $this->crud->field('question')->type('textarea');
         $this->crud->field('answer')->type('textarea');

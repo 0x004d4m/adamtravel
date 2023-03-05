@@ -19,10 +19,15 @@ class Inclusion extends Model
     protected $guarded = ['id'];
     protected $fillable = [
         'name',
-        'is_inclusion',
-        'is_default',
+        'is_exclusion',
+        'inclusion_default_id',
     ];
     protected $translatable = [
         'name',
     ];
+
+    public function inclusionDefault()
+    {
+        return $this->belongsTo(InclusionDefault::class);
+    }
 }

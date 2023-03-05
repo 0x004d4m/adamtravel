@@ -22,7 +22,7 @@ class VisitExtraCrudController extends CrudController
 
     protected function setupListOperation()
     {
-        $this->crud->setColumnDetails('visit_id',[
+        $this->crud->addColumn('visit_id',[
             'label' => "Visit",
             'type' => "select",
             'name' => 'visit_id',
@@ -31,25 +31,25 @@ class VisitExtraCrudController extends CrudController
             'model' => 'App\Models\Visit'
         ]);
         $this->crud->column('name')->type('text');
-        $this->crud->column('is_extra')->type('boolean');
-        $this->crud->column('is_optional')->type('boolean');
+        $this->crud->column('is_extra')->label('extra')->type('boolean');
+        $this->crud->column('is_optional')->label('optional')->type('boolean');
     }
 
     protected function setupCreateOperation()
     {
         $this->crud->setValidation(VisitExtraRequest::class);
+        $this->crud->removeSaveAction('save_and_preview');
+        $this->crud->removeSaveAction('save_and_edit');
+        $this->crud->removeSaveAction('save_and_new');
 
         $this->crud->addField([
-            'label' => "Visit",
-            'type' => "relationship",
+            'type' => "hidden",
             'name' => 'visit_id',
-            'entity' => 'visit',
-            'attribute' => "name",
-            'model' => 'App\Models\Visit'
+            'default' => $_GET['visit_id'] ?? null
         ]);
         $this->crud->field('name')->type('text');
-        $this->crud->field('is_extra')->type('boolean');
-        $this->crud->field('is_optional')->type('boolean');
+        $this->crud->field('is_extra')->label('extra')->type('boolean');
+        $this->crud->field('is_optional')->label('optional')->type('boolean');
     }
 
     protected function setupUpdateOperation()

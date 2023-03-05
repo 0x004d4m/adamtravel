@@ -23,6 +23,14 @@ class HotelCrudController extends CrudController
     protected function setupListOperation()
     {
         $this->crud->column('name')->type('text');
+        $this->crud->addColumn('star_id',[
+            'label' => "Star",
+            'type' => "select",
+            'name' => 'star_id',
+            'entity' => 'Star',
+            'attribute' => "name",
+            'model' => 'App\Models\Star'
+        ]);
         $this->crud->column('tel')->type('text');
         $this->crud->column('fax')->type('text');
         $this->crud->column('mobile')->type('text');
@@ -32,7 +40,7 @@ class HotelCrudController extends CrudController
         $this->crud->column('contact')->type('text');
         $this->crud->column('p_o_box')->type('text');
         $this->crud->column('address')->type('textarea');
-        $this->crud->setColumnDetails('country_id',[
+        $this->crud->addColumn('country_id',[
             'label' => "Country",
             'type' => "select",
             'name' => 'country_id',
@@ -40,7 +48,7 @@ class HotelCrudController extends CrudController
             'attribute' => "name",
             'model' => 'App\Models\Country'
         ]);
-        $this->crud->setColumnDetails('city_id',[
+        $this->crud->addColumn('city_id',[
             'label' => "City",
             'type' => "select",
             'name' => 'city_id',
@@ -54,8 +62,19 @@ class HotelCrudController extends CrudController
     protected function setupCreateOperation()
     {
         $this->crud->setValidation(HotelRequest::class);
+        $this->crud->removeSaveAction('save_and_preview');
+        $this->crud->removeSaveAction('save_and_edit');
+        $this->crud->removeSaveAction('save_and_new');
 
         $this->crud->field('name')->type('text');
+        $this->crud->addField([
+            'label' => "Star",
+            'type' => "relationship",
+            'name' => 'star_id',
+            'entity' => 'Star',
+            'attribute' => "name",
+            'model' => 'App\Models\Star'
+        ]);
         $this->crud->field('tel')->type('text');
         $this->crud->field('fax')->type('text');
         $this->crud->field('mobile')->type('text');

@@ -22,14 +22,14 @@ class TransportationPlanCrudController extends CrudController
 
     protected function setupListOperation()
     {
-        $this->crud->column('is_default')->type('boolean');
+        $this->crud->column('is_default')->label('default')->type('boolean');
         $this->crud->column('name')->type('text');
         $this->crud->column('people_less_than')->type('text');
         $this->crud->column('people_greater_than')->type('text');
         $this->crud->column('pax')->type('text');
         $this->crud->column('free_pax_in_dbl')->type('text');
         $this->crud->column('free_pax_in_sgl')->type('text');
-        $this->crud->setColumnDetails('transportation_type_id',[
+        $this->crud->addColumn('transportation_type_id',[
             'label' => "Transportation Type",
             'type' => "select",
             'name' => 'transportation_type_id',
@@ -38,7 +38,7 @@ class TransportationPlanCrudController extends CrudController
             'model' => 'App\Models\TransportationType'
         ]);
         $this->crud->column('number_of_vehicles');
-        $this->crud->setColumnDetails('transportation_company_id',[
+        $this->crud->addColumn('transportation_company_id',[
             'label' => "Transportation Company",
             'type' => "select",
             'name' => 'transportation_company_id',
@@ -52,8 +52,11 @@ class TransportationPlanCrudController extends CrudController
     protected function setupCreateOperation()
     {
         $this->crud->setValidation(TransportationPlanRequest::class);
+        $this->crud->removeSaveAction('save_and_preview');
+        $this->crud->removeSaveAction('save_and_edit');
+        $this->crud->removeSaveAction('save_and_new');
 
-        $this->crud->field('is_default')->type('boolean');
+        $this->crud->field('is_default')->label('default')->type('boolean');
         $this->crud->field('name')->type('text');
         $this->crud->field('people_less_than')->type('text');
         $this->crud->field('people_greater_than')->type('text');

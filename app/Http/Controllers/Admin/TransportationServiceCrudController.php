@@ -24,16 +24,19 @@ class TransportationServiceCrudController extends CrudController
     {
         $this->crud->column('name')->type('text');
         $this->crud->column('kilo_meters')->type('text');
-        $this->crud->column('is_extra_mileage')->type('boolean');
+        $this->crud->column('is_extra_mileage')->label('extra mileage')->type('boolean');
     }
 
     protected function setupCreateOperation()
     {
         $this->crud->setValidation(TransportationServiceRequest::class);
+        $this->crud->removeSaveAction('save_and_preview');
+        $this->crud->removeSaveAction('save_and_edit');
+        $this->crud->removeSaveAction('save_and_new');
 
         $this->crud->field('name')->type('text');
         $this->crud->field('kilo_meters')->type('text');
-        $this->crud->field('is_extra_mileage')->type('boolean');
+        $this->crud->field('is_extra_mileage')->label('extra mileage')->type('boolean');
     }
 
     protected function setupUpdateOperation()

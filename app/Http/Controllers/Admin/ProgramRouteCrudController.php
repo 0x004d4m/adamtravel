@@ -23,7 +23,7 @@ class ProgramRouteCrudController extends CrudController
     protected function setupListOperation()
     {
         $this->crud->column('day')->type('text');
-        $this->crud->setColumnDetails('program_id',[
+        $this->crud->addColumn('program_id',[
             'label' => "Program",
             'type' => "select",
             'name' => 'program_id',
@@ -31,7 +31,7 @@ class ProgramRouteCrudController extends CrudController
             'attribute' => "name",
             'model' => 'App\Models\Program'
         ]);
-        $this->crud->setColumnDetails('route_id',[
+        $this->crud->addColumn('route_id',[
             'label' => "Route",
             'type' => "select",
             'name' => 'route_id',
@@ -44,15 +44,15 @@ class ProgramRouteCrudController extends CrudController
     protected function setupCreateOperation()
     {
         $this->crud->setValidation(ProgramRouteRequest::class);
+        $this->crud->removeSaveAction('save_and_preview');
+        $this->crud->removeSaveAction('save_and_edit');
+        $this->crud->removeSaveAction('save_and_new');
 
         $this->crud->field('day')->type('text');
         $this->crud->addField([
-            'label' => "Program",
-            'type' => "relationship",
+            'type' => "hidden",
             'name' => 'program_id',
-            'entity' => 'program',
-            'attribute' => "name",
-            'model' => 'App\Models\Program'
+            'default' => $_GET['program_id'] ?? null
         ]);
         $this->crud->addField([
             'label' => "Route",

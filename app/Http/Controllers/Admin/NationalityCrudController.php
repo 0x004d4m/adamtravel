@@ -23,7 +23,7 @@ class NationalityCrudController extends CrudController
     protected function setupListOperation()
     {
         $this->crud->column('name')->type('text');
-        $this->crud->setColumnDetails('market_id',[
+        $this->crud->addColumn('market_id',[
             'label' => "Market",
             'type' => "select",
             'name' => 'market_id',
@@ -36,6 +36,9 @@ class NationalityCrudController extends CrudController
     protected function setupCreateOperation()
     {
         $this->crud->setValidation(NationalityRequest::class);
+        $this->crud->removeSaveAction('save_and_preview');
+        $this->crud->removeSaveAction('save_and_edit');
+        $this->crud->removeSaveAction('save_and_new');
 
         $this->crud->field('name')->type('text');
         $this->crud->addField([

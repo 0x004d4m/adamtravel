@@ -16,8 +16,9 @@ return new class extends Migration
         Schema::create('inclusions', function (Blueprint $table) {
             $table->id();
             $table->json('name');
-            $table->boolean('is_inclusion')->default(true);
-            $table->json('is_default')->default(false);
+            $table->boolean('is_exclusion')->default(false);
+            $table->unsignedBigInteger('inclusion_default_id')->nullable();
+            $table->foreign('inclusion_default_id')->references('id')->on('inclusion_defaults');
             $table->timestamps();
             $table->softDeletes();
         });

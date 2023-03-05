@@ -21,8 +21,6 @@ return new class extends Migration
             $table->integer('pax_greater_than');
             $table->integer('price_per_adult');
             $table->integer('price_per_child');
-            $table->date('start_date');
-            $table->date('end_date');
             $table->timestamps();
             $table->softDeletes();
         });

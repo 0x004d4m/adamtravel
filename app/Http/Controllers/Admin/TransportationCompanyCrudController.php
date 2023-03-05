@@ -32,7 +32,7 @@ class TransportationCompanyCrudController extends CrudController
         $this->crud->column('contact')->type('text');
         $this->crud->column('p_o_box')->type('text');
         $this->crud->column('address')->type('textarea');
-        $this->crud->setColumnDetails('country_id',[
+        $this->crud->addColumn('country_id',[
             'label' => "Country",
             'type' => "select",
             'name' => 'country_id',
@@ -40,7 +40,7 @@ class TransportationCompanyCrudController extends CrudController
             'attribute' => "name",
             'model' => 'App\Models\Country'
         ]);
-        $this->crud->setColumnDetails('city_id',[
+        $this->crud->addColumn('city_id',[
             'label' => "City",
             'type' => "select",
             'name' => 'city_id',
@@ -54,6 +54,9 @@ class TransportationCompanyCrudController extends CrudController
     protected function setupCreateOperation()
     {
         $this->crud->setValidation(TransportationCompanyRequest::class);
+        $this->crud->removeSaveAction('save_and_preview');
+        $this->crud->removeSaveAction('save_and_edit');
+        $this->crud->removeSaveAction('save_and_new');
 
         $this->crud->field('name')->type('text');
         $this->crud->field('tel')->type('text');

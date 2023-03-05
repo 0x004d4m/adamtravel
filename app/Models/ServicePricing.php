@@ -21,8 +21,6 @@ class ServicePricing extends Model
         'pax_greater_than',
         'price_per_adult',
         'price_per_child',
-        'start_date',
-        'end_date',
     ];
 
     public function service()

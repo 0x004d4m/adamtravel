@@ -30,6 +30,9 @@ class CurrencyCrudController extends CrudController
     protected function setupCreateOperation()
     {
         $this->crud->setValidation(CurrencyRequest::class);
+        $this->crud->removeSaveAction('save_and_preview');
+        $this->crud->removeSaveAction('save_and_edit');
+        $this->crud->removeSaveAction('save_and_new');
 
         $this->crud->field('name')->type('text');
         $this->crud->field('symbol')->type('text');

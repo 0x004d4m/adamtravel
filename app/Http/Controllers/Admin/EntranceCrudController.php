@@ -23,7 +23,7 @@ class EntranceCrudController extends CrudController
     protected function setupListOperation()
     {
         $this->crud->column('name')->type('text');
-        $this->crud->setColumnDetails('city_id',[
+        $this->crud->addColumn('city_id',[
             'label' => "City",
             'type' => "select",
             'name' => 'city_id',
@@ -38,6 +38,9 @@ class EntranceCrudController extends CrudController
     protected function setupCreateOperation()
     {
         $this->crud->setValidation(EntranceRequest::class);
+        $this->crud->removeSaveAction('save_and_preview');
+        $this->crud->removeSaveAction('save_and_edit');
+        $this->crud->removeSaveAction('save_and_new');
 
         $this->crud->field('name')->type('text');
         $this->crud->addField([

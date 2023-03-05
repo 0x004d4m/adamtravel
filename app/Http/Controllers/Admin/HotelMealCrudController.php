@@ -23,23 +23,26 @@ class HotelMealCrudController extends CrudController
     protected function setupListOperation()
     {
         $this->crud->column('name')->type('text');
-        $this->crud->column('is_bb')->type('boolean');
-        $this->crud->column('is_hb')->type('boolean');
-        $this->crud->column('is_fb')->type('boolean');
-        $this->crud->column('is_all_inc')->type('boolean');
-        $this->crud->column('is_ro')->type('boolean');
+        $this->crud->column('is_bb')->label('BB')->type('boolean');
+        $this->crud->column('is_hb')->label('HB')->type('boolean');
+        $this->crud->column('is_fb')->label('FB')->type('boolean');
+        $this->crud->column('is_all_inc')->label('All Inc.')->type('boolean');
+        $this->crud->column('is_ro')->label('RO')->type('boolean');
     }
 
     protected function setupCreateOperation()
     {
         $this->crud->setValidation(HotelMealRequest::class);
+        $this->crud->removeSaveAction('save_and_preview');
+        $this->crud->removeSaveAction('save_and_edit');
+        $this->crud->removeSaveAction('save_and_new');
 
         $this->crud->field('name')->type('text');
-        $this->crud->field('is_bb')->type('boolean');
-        $this->crud->field('is_hb')->type('boolean');
-        $this->crud->field('is_fb')->type('boolean');
-        $this->crud->field('is_all_inc')->type('boolean');
-        $this->crud->field('is_ro')->type('boolean');
+        $this->crud->field('is_bb')->label('BB')->type('boolean');
+        $this->crud->field('is_hb')->label('HB')->type('boolean');
+        $this->crud->field('is_fb')->label('FB')->type('boolean');
+        $this->crud->field('is_all_inc')->label('All Inc.')->type('boolean');
+        $this->crud->field('is_ro')->label('RO')->type('boolean');
     }
 
     protected function setupUpdateOperation()

@@ -34,7 +34,7 @@ class GuideCrudController extends CrudController
         $this->crud->column('contact')->type('text');
         $this->crud->column('p_o_box')->type('text');
         $this->crud->column('address')->type('textarea');
-        $this->crud->setColumnDetails('country_id',[
+        $this->crud->addColumn('country_id',[
             'label' => "Country",
             'type' => "select",
             'name' => 'country_id',
@@ -42,7 +42,7 @@ class GuideCrudController extends CrudController
             'attribute' => "name",
             'model' => 'App\Models\Country'
         ]);
-        $this->crud->setColumnDetails('city_id',[
+        $this->crud->addColumn('city_id',[
             'label' => "City",
             'type' => "select",
             'name' => 'city_id',
@@ -56,6 +56,9 @@ class GuideCrudController extends CrudController
     protected function setupCreateOperation()
     {
         $this->crud->setValidation(GuideRequest::class);
+        $this->crud->removeSaveAction('save_and_preview');
+        $this->crud->removeSaveAction('save_and_edit');
+        $this->crud->removeSaveAction('save_and_new');
 
         $this->crud->field('name')->type('text');
         $this->crud->field('daily_rate')->type('text');

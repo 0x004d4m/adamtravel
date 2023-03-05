@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "46d5f73cc65ba11df75fd30dcfe6b24c",
+    "content-hash": "d9d9a4b1ec939e60bdfc07e29b9a4c1a",
     "packages": [
         {
             "name": "backpack/crud",
@@ -1914,6 +1914,67 @@
                 }
             ],
             "time": "2022-05-21T17:30:32+00:00"
+        },
+        {
+            "name": "izica/relations-widgets-for-backpack",
+            "version": "3.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/izica/relations-widgets-for-backpack.git",
+                "reference": "87dcc57d4fb94c2802ea43d537d403af80c976a8"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/izica/relations-widgets-for-backpack/zipball/87dcc57d4fb94c2802ea43d537d403af80c976a8",
+                "reference": "87dcc57d4fb94c2802ea43d537d403af80c976a8",
+                "shasum": ""
+            },
+            "require": {
+                "backpack/crud": "^4.0|^4.1.0|^5.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "izica\\RelationsWidgets\\RelationsWidgetsServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "izica\\RelationsWidgets\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Artyom Golovarchuk",
+                    "email": "artemiztomska@gmail.com",
+                    "homepage": "https://github.com/izica/relations-widgets-for-backpack"
+                }
+            ],
+            "description": "Widgets for preview model relations in laravel backpack",
+            "homepage": "https://github.com/izica/relations-widgets-for-backpack",
+            "keywords": [
+                "Backpack for Laravel",
+                "addon",
+                "admin panel",
+                "backpack",
+                "laravel",
+                "laravel backpack",
+                "plugin",
+                "relations",
+                "widget",
+                "widgets"
+            ],
+            "support": {
+                "issues": "https://github.com/izica/relations-widgets-for-backpack/issues",
+                "source": "https://github.com/izica/relations-widgets-for-backpack/tree/3.2"
+            },
+            "time": "2022-05-08T15:41:21+00:00"
         },
         {
             "name": "laravel/framework",
@@ -3995,69 +4056,6 @@
             "time": "2023-01-12T18:13:24+00:00"
         },
         {
-            "name": "spatie/db-dumper",
-            "version": "3.3.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/spatie/db-dumper.git",
-                "reference": "129b8254b2c9f10881a754a692bd9507b09a1893"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/spatie/db-dumper/zipball/129b8254b2c9f10881a754a692bd9507b09a1893",
-                "reference": "129b8254b2c9f10881a754a692bd9507b09a1893",
-                "shasum": ""
-            },
-            "require": {
-                "php": "^8.0",
-                "symfony/process": "^5.0|^6.0"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "^9.5"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Spatie\\DbDumper\\": "src"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Freek Van der Herten",
-                    "email": "freek@spatie.be",
-                    "homepage": "https://spatie.be",
-                    "role": "Developer"
-                }
-            ],
-            "description": "Dump databases",
-            "homepage": "https://github.com/spatie/db-dumper",
-            "keywords": [
-                "database",
-                "db-dumper",
-                "dump",
-                "mysqldump",
-                "spatie"
-            ],
-            "support": {
-                "source": "https://github.com/spatie/db-dumper/tree/3.3.0"
-            },
-            "funding": [
-                {
-                    "url": "https://spatie.be/open-source/support-us",
-                    "type": "custom"
-                },
-                {
-                    "url": "https://github.com/spatie",
-                    "type": "github"
-                }
-            ],
-            "time": "2022-09-01T20:20:26+00:00"
-        },
-        {
             "name": "spatie/laravel-package-tools",
             "version": "1.14.1",
             "source": {
@@ -4200,80 +4198,6 @@
             "time": "2023-02-06T21:37:02+00:00"
         },
         {
-            "name": "spatie/laravel-signal-aware-command",
-            "version": "1.3.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/spatie/laravel-signal-aware-command.git",
-                "reference": "46cda09a85aef3fd47fb73ddc7081f963e255571"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/spatie/laravel-signal-aware-command/zipball/46cda09a85aef3fd47fb73ddc7081f963e255571",
-                "reference": "46cda09a85aef3fd47fb73ddc7081f963e255571",
-                "shasum": ""
-            },
-            "require": {
-                "illuminate/contracts": "^8.35|^9.0|^10.0",
-                "php": "^8.0",
-                "spatie/laravel-package-tools": "^1.4.3"
-            },
-            "require-dev": {
-                "brianium/paratest": "^6.2",
-                "ext-pcntl": "*",
-                "nunomaduro/collision": "^5.3|^6.0",
-                "orchestra/testbench": "^6.16|^7.0|^8.0",
-                "pestphp/pest-plugin-laravel": "^1.3",
-                "phpunit/phpunit": "^9.5",
-                "spatie/laravel-ray": "^1.17"
-            },
-            "type": "library",
-            "extra": {
-                "laravel": {
-                    "providers": [
-                        "Spatie\\SignalAwareCommand\\SignalAwareCommandServiceProvider"
-                    ],
-                    "aliases": {
-                        "Signal": "Spatie\\SignalAwareCommand\\Facades\\Signal"
-                    }
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Spatie\\SignalAwareCommand\\": "src"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Freek Van der Herten",
-                    "email": "freek@spatie.be",
-                    "role": "Developer"
-                }
-            ],
-            "description": "Handle signals in artisan commands",
-            "homepage": "https://github.com/spatie/laravel-signal-aware-command",
-            "keywords": [
-                "laravel",
-                "laravel-signal-aware-command",
-                "spatie"
-            ],
-            "support": {
-                "issues": "https://github.com/spatie/laravel-signal-aware-command/issues",
-                "source": "https://github.com/spatie/laravel-signal-aware-command/tree/1.3.0"
-            },
-            "funding": [
-                {
-                    "url": "https://github.com/spatie",
-                    "type": "github"
-                }
-            ],
-            "time": "2023-01-14T21:10:59+00:00"
-        },
-        {
             "name": "spatie/laravel-translatable",
             "version": "6.3.0",
             "source": {
@@ -4353,67 +4277,6 @@
                 }
             ],
             "time": "2023-01-14T20:57:45+00:00"
-        },
-        {
-            "name": "spatie/temporary-directory",
-            "version": "2.1.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/spatie/temporary-directory.git",
-                "reference": "e2818d871783d520b319c2d38dc37c10ecdcde20"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/spatie/temporary-directory/zipball/e2818d871783d520b319c2d38dc37c10ecdcde20",
-                "reference": "e2818d871783d520b319c2d38dc37c10ecdcde20",
-                "shasum": ""
-            },
-            "require": {
-                "php": "^8.0"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "^9.5"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Spatie\\TemporaryDirectory\\": "src"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Alex Vanderbist",
-                    "email": "alex@spatie.be",
-                    "homepage": "https://spatie.be",
-                    "role": "Developer"
-                }
-            ],
-            "description": "Easily create, use and destroy temporary directories",
-            "homepage": "https://github.com/spatie/temporary-directory",
-            "keywords": [
-                "php",
-                "spatie",
-                "temporary-directory"
-            ],
-            "support": {
-                "issues": "https://github.com/spatie/temporary-directory/issues",
-                "source": "https://github.com/spatie/temporary-directory/tree/2.1.1"
-            },
-            "funding": [
-                {
-                    "url": "https://spatie.be/open-source/support-us",
-                    "type": "custom"
-                },
-                {
-                    "url": "https://github.com/spatie",
-                    "type": "github"
-                }
-            ],
-            "time": "2022-08-23T07:15:15+00:00"
         },
         {
             "name": "symfony/console",

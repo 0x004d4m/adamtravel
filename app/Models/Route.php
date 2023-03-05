@@ -24,7 +24,6 @@ class Route extends Model
         'kilometers',
         'image',
         'transportation_service_id',
-        'driver_id',
         'has_driver_accommodation',
         'guide_id',
         'has_guide_accommodation',
@@ -42,11 +41,6 @@ class Route extends Model
         return $this->belongsTo(TransportationService::class);
     }
 
-    public function driver()
-    {
-        return $this->belongsTo(Driver::class);
-    }
-
     public function guide()
     {
         return $this->belongsTo(Guide::class);
@@ -54,7 +48,7 @@ class Route extends Model
 
     public function routeGroup()
     {
-        return $this->belongsTo(RouteGroups::class);
+        return $this->belongsTo(RouteGroup::class);
     }
 
     public function startingCity()
@@ -65,5 +59,20 @@ class Route extends Model
     public function overnightCity()
     {
         return $this->belongsTo(City::class);
+    }
+
+    public function routeEntrances()
+    {
+        return $this->hasMany(RouteEntrance::class);
+    }
+
+    public function routeRestaurants()
+    {
+        return $this->hasMany(RouteRestaurant::class);
+    }
+
+    public function routeVisits()
+    {
+        return $this->hasMany   (RouteVisit::class);
     }
 }

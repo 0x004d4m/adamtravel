@@ -19,6 +19,7 @@ class Hotel extends Model
     protected $guarded = ['id'];
     protected $fillable = [
         'name',
+        'star_id',
         'tel',
         'fax',
         'mobile',
@@ -35,6 +36,11 @@ class Hotel extends Model
     protected $translatable = [
         'name',
     ];
+
+    public function star()
+    {
+        return $this->belongsTo(Star::class);
+    }
 
     public function country()
     {

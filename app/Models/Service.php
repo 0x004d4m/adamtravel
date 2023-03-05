@@ -59,4 +59,9 @@ class Service extends Model
         return $this->belongsTo(Currency::class);
     }
 
+    public function ServicePricings()
+    {
+        return $this->hasMany(ServicePricing::class);
+    }
+
 }

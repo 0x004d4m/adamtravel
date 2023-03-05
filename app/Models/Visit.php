@@ -26,9 +26,19 @@ class Visit extends Model
         'name',
         'description',
     ];
-    
+
     public function city()
     {
         return $this->belongsTo(City::class);
+    }
+
+    public function visitEntrances()
+    {
+        return $this->hasMany(VisitEntrance::class);
+    }
+
+    public function visitExtras()
+    {
+        return $this->hasMany(VisitExtra::class);
     }
 }

@@ -38,6 +38,9 @@ class SocialCrudController extends CrudController
     protected function setupCreateOperation()
     {
         $this->crud->setValidation(SocialRequest::class);
+        $this->crud->removeSaveAction('save_and_preview');
+        $this->crud->removeSaveAction('save_and_edit');
+        $this->crud->removeSaveAction('save_and_new');
 
         $this->crud->field('icon')->type('text')->hint('icons list: <a href="https://fontawesome.com/v4/icons/" target="_blank">Font Awesome</a>');
         $this->crud->field('link')->type('text');

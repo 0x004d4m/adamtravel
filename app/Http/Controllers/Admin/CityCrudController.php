@@ -24,7 +24,7 @@ class CityCrudController extends CrudController
     {
         $this->crud->column('code')->type('text');
         $this->crud->column('name')->type('text');
-        $this->crud->setColumnDetails('country_id',[
+        $this->crud->addColumn('country_id',[
             'label' => "Country",
             'type' => "select",
             'name' => 'country_id',
@@ -37,6 +37,9 @@ class CityCrudController extends CrudController
     protected function setupCreateOperation()
     {
         $this->crud->setValidation(CityRequest::class);
+        $this->crud->removeSaveAction('save_and_preview');
+        $this->crud->removeSaveAction('save_and_edit');
+        $this->crud->removeSaveAction('save_and_new');
 
         $this->crud->field('code')->type('text');
         $this->crud->field('name')->type('text');

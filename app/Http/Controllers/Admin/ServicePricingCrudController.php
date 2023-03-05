@@ -22,7 +22,7 @@ class ServicePricingCrudController extends CrudController
 
     protected function setupListOperation()
     {
-        $this->crud->setColumnDetails('service_id',[
+        $this->crud->addColumn('service_id',[
             'label' => "Service",
             'type' => "select",
             'name' => 'service_id',
@@ -34,28 +34,24 @@ class ServicePricingCrudController extends CrudController
         $this->crud->column('pax_greater_than')->type('text');
         $this->crud->column('price_per_adult')->type('text');
         $this->crud->column('price_per_child')->type('text');
-        $this->crud->column('start_date')->type('date');
-        $this->crud->column('end_date')->type('date');
     }
 
     protected function setupCreateOperation()
     {
         $this->crud->setValidation(ServicePricingRequest::class);
+        $this->crud->removeSaveAction('save_and_preview');
+        $this->crud->removeSaveAction('save_and_edit');
+        $this->crud->removeSaveAction('save_and_new');
 
         $this->crud->addField([
-            'label' => "Service",
-            'type' => "relationship",
+            'type' => "hidden",
             'name' => 'service_id',
-            'entity' => 'service',
-            'attribute' => "name",
-            'model' => 'App\Models\Service'
+            'default' => $_GET['service_id'] ?? null
         ]);
-        $this->crud->field('pax_less_than')->type('text');
-        $this->crud->field('pax_greater_than')->type('text');
+        $this->crud->field('pax_less_than')->label('PAX >=')->type('text');
+        $this->crud->field('pax_greater_than')->label('PAX <=')->type('text');
         $this->crud->field('price_per_adult')->type('text');
         $this->crud->field('price_per_child')->type('text');
-        $this->crud->field('start_date')->type('date');
-        $this->crud->field('end_date')->type('date');
     }
 
     protected function setupUpdateOperation()

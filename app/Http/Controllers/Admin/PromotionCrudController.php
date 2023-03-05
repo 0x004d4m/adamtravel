@@ -23,23 +23,26 @@ class PromotionCrudController extends CrudController
     protected function setupListOperation()
     {
         $this->crud->column('name')->type('text');
-        $this->crud->column('is_only_ro')->type('boolean');
-        $this->crud->column('is_inc_bb')->type('boolean');
-        $this->crud->column('is_inc_hb')->type('boolean');
-        $this->crud->column('is_inc_fb')->type('boolean');
-        $this->crud->column('is_inc_all')->type('boolean');
+        $this->crud->column('is_only_ro')->label('only ro')->type('boolean');
+        $this->crud->column('is_inc_bb')->label('inc bb')->type('boolean');
+        $this->crud->column('is_inc_hb')->label('inc hb')->type('boolean');
+        $this->crud->column('is_inc_fb')->label('inc fb')->type('boolean');
+        $this->crud->column('is_inc_all')->label('inc all')->type('boolean');
     }
 
     protected function setupCreateOperation()
     {
         $this->crud->setValidation(PromotionRequest::class);
+        $this->crud->removeSaveAction('save_and_preview');
+        $this->crud->removeSaveAction('save_and_edit');
+        $this->crud->removeSaveAction('save_and_new');
 
         $this->crud->field('name')->type('text');
-        $this->crud->field('is_only_ro')->type('boolean');
-        $this->crud->field('is_inc_bb')->type('boolean');
-        $this->crud->field('is_inc_hb')->type('boolean');
-        $this->crud->field('is_inc_fb')->type('boolean');
-        $this->crud->field('is_inc_all')->type('boolean');
+        $this->crud->field('is_only_ro')->label('only ro')->type('boolean');
+        $this->crud->field('is_inc_bb')->label('inc bb')->type('boolean');
+        $this->crud->field('is_inc_hb')->label('inc hb')->type('boolean');
+        $this->crud->field('is_inc_fb')->label('inc fb')->type('boolean');
+        $this->crud->field('is_inc_all')->label('inc all')->type('boolean');
     }
 
     protected function setupUpdateOperation()

@@ -24,4 +24,9 @@ class Program extends Model
     protected $translatable = [
         'name',
     ];
+
+    public function programRoutes()
+    {
+        return $this->hasMany(ProgramRoute::class);
+    }
 }

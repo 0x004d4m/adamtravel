@@ -17,7 +17,7 @@ class GroupCategory1CrudController extends CrudController
     {
         $this->crud->setModel(\App\Models\GroupCategory1::class);
         $this->crud->setRoute(config('backpack.base.route_prefix') . '/group-category1');
-        $this->crud->setEntityNameStrings('group category1', 'group category1s');
+        $this->crud->setEntityNameStrings('group category1', 'group categories 1');
     }
 
     protected function setupListOperation()
@@ -28,6 +28,9 @@ class GroupCategory1CrudController extends CrudController
     protected function setupCreateOperation()
     {
         $this->crud->setValidation(GroupCategory1Request::class);
+        $this->crud->removeSaveAction('save_and_preview');
+        $this->crud->removeSaveAction('save_and_edit');
+        $this->crud->removeSaveAction('save_and_new');
 
         $this->crud->field('name')->type('text');
     }

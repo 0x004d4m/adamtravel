@@ -29,6 +29,9 @@ class StatusCrudController extends CrudController
     protected function setupCreateOperation()
     {
         $this->crud->setValidation(StatusRequest::class);
+        $this->crud->removeSaveAction('save_and_preview');
+        $this->crud->removeSaveAction('save_and_edit');
+        $this->crud->removeSaveAction('save_and_new');
 
         $this->crud->field('code')->type('text');
         $this->crud->field('name')->type('text');

@@ -23,17 +23,31 @@ class InclusionCrudController extends CrudController
     protected function setupListOperation()
     {
         $this->crud->column('name')->type('text');
-        $this->crud->column('is_inclusion')->type('boolean');
-        $this->crud->column('is_default')->type('boolean');
+        $this->crud->column('is_exclusion')->label('exclusion')->type('boolean');
+        $this->crud->addColumn('inclusion_default_id',[
+            'label' => "Inclusion Default",
+            'type' => "select",
+            'name' => 'inclusion_default_id',
+            'entity' => 'inclusionDefault',
+            'attribute' => "name",
+            'model' => 'App\Models\InclusionDefault'
+        ]);
     }
 
     protected function setupCreateOperation()
     {
         $this->crud->setValidation(InclusionRequest::class);
+        $this->crud->removeSaveAction('save_and_preview');
+        $this->crud->removeSaveAction('save_and_edit');
+        $this->crud->removeSaveAction('save_and_new');
 
         $this->crud->field('name')->type('text');
-        $this->crud->field('is_inclusion')->type('boolean');
-        $this->crud->field('is_default')->type('boolean');
+        $this->crud->field('is_exclusion')->label('exclusion')->type('boolean');
+        $this->crud->addField([
+            'type' => "hidden",
+            'name' => 'inclusion_default_id',
+            'default' => $_GET['inclusion_default_id'] ?? null
+        ]);
     }
 
     protected function setupUpdateOperation()
