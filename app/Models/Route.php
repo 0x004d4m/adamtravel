@@ -85,7 +85,6 @@ class Route extends Model
         $destination_path = "public/uploads";
 
         if ($value==null) {
-            Storage::delete($this->{$attribute_name});
             $this->attributes[$attribute_name] = null;
         }
 
