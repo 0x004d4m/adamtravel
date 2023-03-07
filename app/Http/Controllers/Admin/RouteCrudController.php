@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Requests\RouteRequest;
+use App\Models\Route;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 use Backpack\CRUD\app\Library\Widget;
 
@@ -79,7 +80,7 @@ class RouteCrudController extends CrudController
         $this->crud->removeSaveAction('save_and_edit');
         $this->crud->removeSaveAction('save_and_new');
 
-        $this->crud->field('number')->type('text');
+        $this->crud->field('number')->type('text')->default((Route::get()->last()?Route::get()->last()->number:0) +1);
         $this->crud->field('name')->type('text');
         $this->crud->field('description')->type('textarea');
         $this->crud->field('kilometers')->default(0)->type('text');

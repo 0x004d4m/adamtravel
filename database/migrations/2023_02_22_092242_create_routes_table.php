@@ -17,13 +17,13 @@ return new class extends Migration
             $table->id();
             $table->string('number');
             $table->json('name');
-            $table->json('description');
+            $table->json('description')->nullable();
             $table->string('kilometers');
-            $table->text('image');
+            $table->text('image')->nullable();
             $table->unsignedBigInteger('transportation_service_id');
             $table->foreign('transportation_service_id')->references('id')->on('transportation_services');
             $table->boolean('has_driver_accommodation');
-            $table->unsignedBigInteger('guide_id');
+            $table->unsignedBigInteger('guide_id')->nullable();
             $table->foreign('guide_id')->references('id')->on('guides');
             $table->boolean('has_guide_accommodation');
             $table->unsignedBigInteger('route_group_id');

@@ -23,7 +23,8 @@ class HotelContractSupplement extends Model
         'starting_date',
         'ending_date',
         'is_optional',
-        'price',
+        'price_per_child',
+        'price_per_adult',
         'notes',
     ];
     protected $translatable = [

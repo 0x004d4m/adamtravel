@@ -26,7 +26,6 @@ class Service extends Model
         'country_id',
         'city_id',
         'service_classification_id',
-        'currency_id',
         'is_excursion',
         'is_per_group',
         'is_per_person',
@@ -52,11 +51,6 @@ class Service extends Model
     public function serviceClassification()
     {
         return $this->belongsTo(ServiceClassification::class);
-    }
-
-    public function currency()
-    {
-        return $this->belongsTo(Currency::class);
     }
 
     public function ServicePricings()

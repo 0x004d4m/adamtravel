@@ -26,7 +26,7 @@ class TransportationContractServicePriceRequest extends FormRequest
     {
         return [
             'transportation_contract_service_id' => 'required',
-            'transportation_type_id' => 'required',
+            'vehicle_type_id' => 'required',
             'price' => 'required|decimal:0,3',
         ];
     }

@@ -29,13 +29,13 @@ class TransportationContractServicePriceCrudController extends CrudController
             'entity' => 'transportationContractService',
             'attribute' => "name",
             'model' => 'App\Models\TransportationContractService'
-        ]);$this->crud->addColumn('transportation_type_id',[
-            'label' => "Transportation Type",
+        ]);$this->crud->addColumn('vehicle_type_id',[
+            'label' => "Vehicle Type",
             'type' => "select",
-            'name' => 'transportation_type_id',
-            'entity' => 'transportationType',
+            'name' => 'vehicle_type_id',
+            'entity' => 'vehicleType',
             'attribute' => "name",
-            'model' => 'App\Models\TransportationType'
+            'model' => 'App\Models\VehicleType'
         ]);
         $this->crud->column('price')->type('text');
     }
@@ -53,12 +53,12 @@ class TransportationContractServicePriceCrudController extends CrudController
             'default' => $_GET['transportation_contract_service_id'] ?? null
         ]);
         $this->crud->addField([
-            'label' => "Transportation Type",
+            'label' => "Vehicle Type",
             'type' => "relationship",
-            'name' => 'transportation_type_id',
-            'entity' => 'transportationType',
+            'name' => 'vehicle_type_id',
+            'entity' => 'vehicleType',
             'attribute' => "name",
-            'model' => 'App\Models\TransportationType'
+            'model' => 'App\Models\VehicleType'
         ]);
         $this->crud->field('price')->default(0)->type('text');
     }

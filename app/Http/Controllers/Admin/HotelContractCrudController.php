@@ -81,11 +81,11 @@ class HotelContractCrudController extends CrudController
                     'name'  => 'season.name',
                 ],
                 [
-                    'label' => 'starting_date',
+                    'label' => 'starting date',
                     'name'  => 'starting_date',
                 ],
                 [
-                    'label' => 'ending_date',
+                    'label' => 'ending date',
                     'name'  => 'ending_date',
                 ],
                 [
@@ -129,7 +129,7 @@ class HotelContractCrudController extends CrudController
                     'name'  => 'lunch',
                 ],
                 [
-                    'label' => 'all_inc',
+                    'label' => 'all inc',
                     'name'  => 'all_inc',
                 ],
             ],
@@ -249,11 +249,11 @@ class HotelContractCrudController extends CrudController
                     'name'  => 'price',
                 ],
                 [
-                    'label' => 'starting_date',
+                    'label' => 'starting date',
                     'name'  => 'starting_date',
                 ],
                 [
-                    'label' => 'ending_date',
+                    'label' => 'ending date',
                     'name'  => 'ending_date',
                 ],
                 [
@@ -282,11 +282,11 @@ class HotelContractCrudController extends CrudController
                     'name'  => 'roomType.name',
                 ],
                 [
-                    'label' => 'max_adults',
+                    'label' => 'max adults',
                     'name'  => 'max_adults',
                 ],
                 [
-                    'label' => 'max_children',
+                    'label' => 'max children',
                     'name'  => 'max_children',
                 ],
                 [

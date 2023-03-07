@@ -52,18 +52,10 @@ class ServiceCrudController extends CrudController
             'attribute' => "name",
             'model' => 'App\Models\ServiceClassification'
         ]);
-        $this->crud->addColumn('currency_id',[
-            'label' => "Currency",
-            'type' => "select",
-            'name' => 'currency_id',
-            'entity' => 'currency',
-            'attribute' => "name",
-            'model' => 'App\Models\Currency'
-        ]);
         $this->crud->column('is_excursion')->type('boolean');
-        $this->crud->column('is_per_group')->type('boolean');
-        $this->crud->column('is_per_person')->type('boolean');
-        $this->crud->column('is_per_capacity')->type('boolean');
+        // $this->crud->column('is_per_group')->type('boolean');
+        // $this->crud->column('is_per_person')->type('boolean');
+        // $this->crud->column('is_per_capacity')->type('boolean');
     }
 
     protected function setupCreateOperation()
@@ -74,10 +66,6 @@ class ServiceCrudController extends CrudController
         $this->crud->removeSaveAction('save_and_new');
 
         $this->crud->field('name')->type('text');
-        $this->crud->field('description')->type('textarea');
-        $this->crud->field('visit_duration')->type('text');
-        $this->crud->field('opening_hours')->type('text');
-        $this->crud->field('website')->type('text');
         $this->crud->addField([
             'label' => "Country",
             'type' => "relationship",
@@ -102,18 +90,14 @@ class ServiceCrudController extends CrudController
             'attribute' => "name",
             'model' => 'App\Models\ServiceClassification'
         ]);
-        $this->crud->addField([
-            'label' => "Currency",
-            'type' => "relationship",
-            'name' => 'currency_id',
-            'entity' => 'currency',
-            'attribute' => "name",
-            'model' => 'App\Models\Currency'
-        ]);
+        $this->crud->field('description')->type('textarea');
+        $this->crud->field('visit_duration')->type('text');
+        $this->crud->field('opening_hours')->type('text');
+        $this->crud->field('website')->type('text');
         $this->crud->field('is_excursion')->type('boolean');
-        $this->crud->field('is_per_group')->type('boolean');
-        $this->crud->field('is_per_person')->type('boolean');
-        $this->crud->field('is_per_capacity')->type('boolean');
+        // $this->crud->field('is_per_group')->type('boolean');
+        // $this->crud->field('is_per_person')->type('boolean');
+        // $this->crud->field('is_per_capacity')->type('boolean');
     }
 
     protected function setupUpdateOperation()

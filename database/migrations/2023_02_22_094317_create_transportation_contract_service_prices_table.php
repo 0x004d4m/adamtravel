@@ -17,8 +17,8 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('transportation_contract_service_id');
             $table->foreign('transportation_contract_service_id','tcServiceP_tcs_foreign')->references('id')->on('transportation_contract_services');
-            $table->unsignedBigInteger('transportation_type_id');
-            $table->foreign('transportation_type_id','tcServiceP_tt_foreign')->references('id')->on('transportation_types');
+            $table->unsignedBigInteger('vehicle_type_id');
+            $table->foreign('vehicle_type_id','vcServiceP_tt_foreign')->references('id')->on('vehicle_types');
             $table->double('price');
             $table->timestamps();
             $table->softDeletes();

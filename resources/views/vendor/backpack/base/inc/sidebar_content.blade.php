@@ -46,18 +46,16 @@
         <li class="nav-item"><a class="nav-link" href="{{ backpack_url('region') }}"> Regions</a></li>
         <li class="nav-item"><a class="nav-link" href="{{ backpack_url('country') }}"> Countries</a></li>
         <li class="nav-item"><a class="nav-link" href="{{ backpack_url('city') }}"> Cities</a></li>
-        <li class="nav-item"><a class="nav-link" href="{{ backpack_url('border') }}"> Borders</a></li>
         <li class="nav-item"><a class="nav-link" href="{{ backpack_url('market') }}"> Markets</a></li>
         <li class="nav-item"><a class="nav-link" href="{{ backpack_url('nationality') }}"> Nationalities</a></li>
         <li class="nav-item"><a class="nav-link" href="{{ backpack_url('hotel-meal') }}"> Hotel meals</a></li>
-        <li class="nav-item"><a class="nav-link" href="{{ backpack_url('room') }}"> Rooms</a></li>
         <li class="nav-item"><a class="nav-link" href="{{ backpack_url('title') }}"> Titles</a></li>
         <li class="nav-item"><a class="nav-link" href="{{ backpack_url('bank-detail') }}"> Bank details</a></li>
         <li class="nav-item"><a class="nav-link" href="{{ backpack_url('group-category1') }}"> Group categories 1</a></li>
         <li class="nav-item"><a class="nav-link" href="{{ backpack_url('group-category2') }}"> Group categories 2</a></li>
         <li class="nav-item"><a class="nav-link" href="{{ backpack_url('status') }}"> Statuses</a></li>
         <li class="nav-item"><a class="nav-link" href="{{ backpack_url('restaurant-meal') }}"> Restaurant meals</a></li>
-        <li class="nav-item"><a class="nav-link" href="{{ backpack_url('transportation-type') }}"> Transportation types</a></li>
+        <li class="nav-item"><a class="nav-link" href="{{ backpack_url('vehicle-type') }}"> Vehicle types</a></li>
         <li class="nav-item"><a class="nav-link" href="{{ backpack_url('transportation-service') }}"> Transportation services</a></li>
         <li class="nav-item"><a class="nav-link" href="{{ backpack_url('room-type') }}"> Room types</a></li>
         <li class="nav-item"><a class="nav-link" href="{{ backpack_url('season') }}"> Seasons</a></li>

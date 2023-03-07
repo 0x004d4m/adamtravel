@@ -20,11 +20,10 @@ return new class extends Migration
             $table->text('notes')->nullable();
             $table->integer('people_less_than');
             $table->integer('people_greater_than');
-            $table->integer('pax');
             $table->integer('free_pax_in_dbl');
             $table->integer('free_pax_in_sgl');
-            $table->unsignedBigInteger('transportation_type_id');
-            $table->foreign('transportation_type_id')->references('id')->on('transportation_types');
+            $table->unsignedBigInteger('vehicle_type_id');
+            $table->foreign('vehicle_type_id')->references('id')->on('vehicle_types');
             $table->integer('number_of_vehicles');
             $table->unsignedBigInteger('transportation_company_id');
             $table->foreign('transportation_company_id')->references('id')->on('transportation_companies');

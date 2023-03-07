@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('nationalities', function (Blueprint $table) {
             $table->id();
             $table->json('name');
-            $table->unsignedBigInteger('market_id');
+            $table->unsignedBigInteger('market_id')->nullable();
             $table->foreign('market_id')->references('id')->on('markets');
             $table->timestamps();
             $table->softDeletes();

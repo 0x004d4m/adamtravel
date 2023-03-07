@@ -15,13 +15,13 @@ return new class extends Migration
     {
         Schema::create('restaurant_contract_meals', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('restaurant_contract_id')->nullable();
+            $table->unsignedBigInteger('restaurant_contract_id');
             $table->foreign('restaurant_contract_id')->references('id')->on('restaurant_contracts');
-            $table->unsignedBigInteger('restaurant_meal_id')->nullable();
+            $table->unsignedBigInteger('restaurant_meal_id');
             $table->foreign('restaurant_meal_id')->references('id')->on('restaurant_meals');
             $table->integer('adult_cost');
             $table->integer('child_cost');
-            $table->json('description');
+            $table->json('description')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

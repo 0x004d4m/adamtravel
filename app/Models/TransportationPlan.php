@@ -23,10 +23,9 @@ class TransportationPlan extends Model
         'notes',
         'people_less_than',
         'people_greater_than',
-        'pax',
         'free_pax_in_dbl',
         'free_pax_in_sgl',
-        'transportation_type_id',
+        'vehicle_type_id',
         'number_of_vehicles',
         'transportation_company_id',
     ];
@@ -34,9 +33,9 @@ class TransportationPlan extends Model
         'name',
     ];
 
-    public function transportationType()
+    public function vehicleType()
     {
-        return $this->belongsTo(TransportationType::class);
+        return $this->belongsTo(VehicleType::class);
     }
 
     public function transportationCompany()

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Requests\HotelContractSeasonRequest;
+use App\Models\HotelContract;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 
 class HotelContractSeasonCrudController extends CrudController
@@ -47,6 +48,9 @@ class HotelContractSeasonCrudController extends CrudController
     {
         $this->crud->setValidation(HotelContractSeasonRequest::class);
 
+        if(isset($_GET['hotel_contract_id'])){
+            $HotelContract = HotelContract::where('id', $_GET['hotel_contract_id'])->first();
+        }
         $this->crud->addField([
             'type' => "hidden",
             'name' => 'hotel_contract_id',
@@ -58,10 +62,16 @@ class HotelContractSeasonCrudController extends CrudController
             'name' => 'season_id',
             'entity' => 'season',
             'attribute' => "name",
-            'model' => 'App\Models\Season'
+            'model' => 'App\Models\Season',
         ]);
-        $this->crud->field('starting_date')->type('date');
-        $this->crud->field('ending_date')->type('date');
+        $this->crud->field('starting_date')->type('date')->attributes([
+            'min'=>$HotelContract->starting_date??'1900-01-01',
+            'max'=>$HotelContract->ending_date??'4000-01-01',
+        ]);
+        $this->crud->field('ending_date')->type('date')->attributes([
+            'min'=>$HotelContract->starting_date??'1900-01-01',
+            'max'=>$HotelContract->ending_date??'4000-01-01',
+        ]);
         $this->crud->field('notes')->type('textarea');
     }
 

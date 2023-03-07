@@ -17,7 +17,7 @@ class TransportationContractServicePrice extends Model
     protected $guarded = ['id'];
     protected $fillable = [
         'transportation_contract_service_id',
-        'transportation_type_id',
+        'vehicle_type_id',
         'price',
     ];
 
@@ -26,8 +26,8 @@ class TransportationContractServicePrice extends Model
         return $this->belongsTo(TransportationContractService::class);
     }
 
-    public function transportationType()
+    public function vehicleType()
     {
-        return $this->belongsTo(TransportationType::class);
+        return $this->belongsTo(VehicleType::class);
     }
 }

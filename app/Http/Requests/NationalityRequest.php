@@ -25,7 +25,7 @@ class NationalityRequest extends FormRequest
     public function rules()
     {
         return [
-            '*' => 'required',
+            'name' => 'required',
         ];
     }
 

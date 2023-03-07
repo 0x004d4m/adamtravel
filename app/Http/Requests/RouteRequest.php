@@ -25,7 +25,13 @@ class RouteRequest extends FormRequest
     public function rules()
     {
         return [
-            '*' => 'required'
+            'number' => 'required',
+            'name' => 'required',
+            'kilometers' => 'required',
+            'transportation_service_id' => 'required',
+            'route_group_id' => 'required',
+            'starting_city_id' => 'required',
+            'overnight_city_id' => 'required',
         ];
     }
 

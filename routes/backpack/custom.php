@@ -34,11 +34,9 @@ Route::group([
     Route::crud('region', 'RegionCrudController');
     Route::crud('country', 'CountryCrudController');
     Route::crud('city', 'CityCrudController');
-    Route::crud('border', 'BorderCrudController');
     Route::crud('market', 'MarketCrudController');
     Route::crud('nationality', 'NationalityCrudController');
     Route::crud('hotel-meal', 'HotelMealCrudController');
-    Route::crud('room', 'RoomCrudController');
     Route::crud('title', 'TitleCrudController');
     Route::crud('bank-detail', 'BankDetailCrudController');
     Route::crud('group-category1', 'GroupCategory1CrudController');
@@ -47,7 +45,7 @@ Route::group([
     Route::crud('status', 'StatusCrudController');
     Route::crud('entrance', 'EntranceCrudController');
     Route::crud('restaurant-meal', 'RestaurantMealCrudController');
-    Route::crud('transportation-type', 'TransportationTypeCrudController');
+    Route::crud('vehicle-type', 'VehicleTypeCrudController');
     Route::crud('transportation-service', 'TransportationServiceCrudController');
     Route::crud('program', 'ProgramCrudController');
     Route::crud('room-type', 'RoomTypeCrudController');
@@ -88,4 +86,5 @@ Route::group([
     Route::crud('hotel-contract-note', 'HotelContractNoteCrudController');
     Route::crud('inclusion-default', 'InclusionDefaultCrudController');
     Route::crud('hotel-contract-season', 'HotelContractSeasonCrudController');
+    Route::get('City/Entrances', 'EntranceCrudController@getEntrances');
 }); // this should be the absolute last line of this file

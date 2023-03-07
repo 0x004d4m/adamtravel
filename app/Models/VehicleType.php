@@ -8,18 +8,18 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Room extends Model
+class VehicleType extends Model
 {
     use CrudTrait;
     use HasFactory;
     use HasTranslations;
     use SoftDeletes;
 
-    protected $table = 'rooms';
+    protected $table = 'vehicle_types';
     protected $guarded = ['id'];
     protected $fillable = [
-        'code',
         'name',
+        'seats',
     ];
     protected $translatable = [
         'name',

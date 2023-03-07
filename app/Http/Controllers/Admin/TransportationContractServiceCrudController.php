@@ -98,8 +98,8 @@ class TransportationContractServiceCrudController extends CrudController
             'button_delete' => true,
             'columns' => [
                 [
-                    'label' => 'transportation type',
-                    'name'  => 'transportationType.name',
+                    'label' => 'vehicle type',
+                    'name'  => 'vehicleType.name',
                 ],
                 [
                     'label' => 'price',

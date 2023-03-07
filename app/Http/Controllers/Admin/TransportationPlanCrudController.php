@@ -24,18 +24,17 @@ class TransportationPlanCrudController extends CrudController
     {
         $this->crud->column('is_default')->label('default')->type('boolean');
         $this->crud->column('name')->type('text');
-        $this->crud->column('people_less_than')->type('text');
-        $this->crud->column('people_greater_than')->type('text');
-        $this->crud->column('pax')->type('text');
+        $this->crud->column('people_less_than')->label('PAX >=')->type('text');
+        $this->crud->column('people_greater_than')->label('PAX <=')->type('text');
         $this->crud->column('free_pax_in_dbl')->type('text');
         $this->crud->column('free_pax_in_sgl')->type('text');
-        $this->crud->addColumn('transportation_type_id',[
-            'label' => "Transportation Type",
+        $this->crud->addColumn('vehicle_type_id',[
+            'label' => "Vehicle Type",
             'type' => "select",
-            'name' => 'transportation_type_id',
-            'entity' => 'transportationType',
+            'name' => 'vehicle_type_id',
+            'entity' => 'vehicleType',
             'attribute' => "name",
-            'model' => 'App\Models\TransportationType'
+            'model' => 'App\Models\VehicleType'
         ]);
         $this->crud->column('number_of_vehicles');
         $this->crud->addColumn('transportation_company_id',[
@@ -58,18 +57,17 @@ class TransportationPlanCrudController extends CrudController
 
         $this->crud->field('is_default')->label('default')->type('boolean');
         $this->crud->field('name')->type('text');
-        $this->crud->field('people_less_than')->default(0)->type('text');
-        $this->crud->field('people_greater_than')->default(0)->type('text');
-        $this->crud->field('pax')->default(0)->type('text');
+        $this->crud->field('people_less_than')->label('PAX >=')->default(0)->type('text');
+        $this->crud->field('people_greater_than')->label('PAX <=')->default(0)->type('text');
         $this->crud->field('free_pax_in_dbl')->default(0)->type('text');
         $this->crud->field('free_pax_in_sgl')->default(0)->type('text');
         $this->crud->addField([
-            'label' => "Transportation Type",
+            'label' => "Vehicle Type",
             'type' => "relationship",
-            'name' => 'transportation_type_id',
-            'entity' => 'transportationType',
+            'name' => 'vehicle_type_id',
+            'entity' => 'vehicleType',
             'attribute' => "name",
-            'model' => 'App\Models\TransportationType'
+            'model' => 'App\Models\VehicleType'
         ]);
         $this->crud->field('number_of_vehicles')->default(0);
         $this->crud->addField([

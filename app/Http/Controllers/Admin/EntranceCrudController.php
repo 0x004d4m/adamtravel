@@ -3,7 +3,10 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Requests\EntranceRequest;
+use App\Models\Entrance;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
+use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Request;
 
 class EntranceCrudController extends CrudController
 {
@@ -63,5 +66,21 @@ class EntranceCrudController extends CrudController
     protected function setupShowOperation()
     {
         $this->setupListOperation();
+    }
+
+    public function getEntrances(Request $request)
+    {
+
+        $form = backpack_form_input();
+
+        $options = Entrance::query();
+
+        if (isset($form['city_id'])) {
+            $options = $options->where('city_id', $form['city_id']);
+        }
+
+        $results = $options->paginate(1000);
+        Log::debug($results);
+        return $results;
     }
 }

@@ -29,7 +29,6 @@ class RestaurantContractMealRequest extends FormRequest
             'restaurant_meal_id' => 'required',
             'adult_cost' => 'required|decimal:0,3',
             'child_cost' => 'required|decimal:0,3',
-            'description' => 'required',
         ];
     }
 

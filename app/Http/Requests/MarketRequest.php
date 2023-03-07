@@ -25,7 +25,7 @@ class MarketRequest extends FormRequest
     public function rules()
     {
         return [
-            '*' => 'required',
+            'name' => 'required',
         ];
     }
 
