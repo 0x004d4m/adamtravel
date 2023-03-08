@@ -16,11 +16,9 @@ return new class extends Migration
         Schema::create('hotel_contract_free_policies', function (Blueprint $table) {
             $table->id();
             $table->integer('number_of_free_pax');
-            $table->boolean('is_single_room')->default(false);
-            $table->boolean('is_sharing_double_room')->default(false);
+            $table->enum('room',[1,2])->default(1);// 1=>single room, 2=>sharing double room
             $table->integer('every');
-            $table->boolean('is_pax')->default(false);
-            $table->boolean('is_room')->default(false);
+            $table->enum('type',[1,2])->default(1);// 1=>pax, 2=>room
             $table->integer('maximum');
             $table->unsignedBigInteger('hotel_contract_id');
             $table->foreign('hotel_contract_id')->references('id')->on('hotel_contracts');

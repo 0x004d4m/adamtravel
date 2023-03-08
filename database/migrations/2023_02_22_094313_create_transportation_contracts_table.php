@@ -22,7 +22,7 @@ return new class extends Migration
             $table->date('ending_date');
             $table->double('driver_accommodation')->default(0);
             $table->double('commission')->default(0);
-            $table->boolean('is_prices_by_route')->default(false);
+            $table->enum('price_type',[1,2])->default(1);// 1=>by person, 2=>by route
             $table->timestamps();
             $table->softDeletes();
         });

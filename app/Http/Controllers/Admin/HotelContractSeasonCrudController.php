@@ -47,6 +47,9 @@ class HotelContractSeasonCrudController extends CrudController
     protected function setupCreateOperation()
     {
         $this->crud->setValidation(HotelContractSeasonRequest::class);
+        $this->crud->removeSaveAction('save_and_preview');
+        $this->crud->removeSaveAction('save_and_edit');
+        $this->crud->removeSaveAction('save_and_new');
 
         if(isset($_GET['hotel_contract_id'])){
             $HotelContract = HotelContract::where('id', $_GET['hotel_contract_id'])->first();

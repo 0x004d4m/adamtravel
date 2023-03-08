@@ -23,11 +23,15 @@ class HotelContractFreePolicyCrudController extends CrudController
     protected function setupListOperation()
     {
         $this->crud->column('number_of_free_pax')->type('text');
-        $this->crud->column('is_single_room')->label('single room')->type('boolean');
-        $this->crud->column('is_sharing_double_room')->label('sharing double room')->type('boolean');
+        $this->crud->column('room')->label('room')->type('radio')->options([
+            1=>__('content.singleRoom'),
+            2=>__('content.sharingDouble'),
+        ])->default(1);
         $this->crud->column('every')->type('text');
-        $this->crud->column('is_pax')->label('pax')->type('boolean');
-        $this->crud->column('is_room')->label('room')->type('boolean');
+        $this->crud->column('type')->label('type')->type('radio')->options([
+            1=>__('content.pax'),
+            2=>__('content.room'),
+        ])->default(1);
         $this->crud->column('maximum')->type('text');
         $this->crud->addColumn('hotel_contract_id',[
             'label' => "Hotel Contract",
@@ -47,11 +51,15 @@ class HotelContractFreePolicyCrudController extends CrudController
         $this->crud->removeSaveAction('save_and_new');
 
         $this->crud->field('number_of_free_pax')->default(0)->type('text');
-        $this->crud->field('is_single_room')->label('single room')->type('boolean');
-        $this->crud->field('is_sharing_double_room')->label('sharing double room')->type('boolean');
+        $this->crud->field('room')->label('room')->type('radio')->options([
+            1=>__('content.singleRoom'),
+            2=>__('content.sharingDouble'),
+        ])->default(1);
         $this->crud->field('every')->default(0)->type('text');
-        $this->crud->field('is_pax')->label('pax')->type('boolean');
-        $this->crud->field('is_room')->label('room')->type('boolean');
+        $this->crud->field('type')->label('type')->type('radio')->options([
+            1=>__('content.pax'),
+            2=>__('content.room'),
+        ])->default(1);
         $this->crud->field('maximum')->default(0)->type('text');
         $this->crud->addField([
             'type' => "hidden",

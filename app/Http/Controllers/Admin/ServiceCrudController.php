@@ -53,9 +53,15 @@ class ServiceCrudController extends CrudController
             'model' => 'App\Models\ServiceClassification'
         ]);
         $this->crud->column('is_excursion')->type('boolean');
-        // $this->crud->column('is_per_group')->type('boolean');
-        // $this->crud->column('is_per_person')->type('boolean');
-        // $this->crud->column('is_per_capacity')->type('boolean');
+        $this->crud->column('price_per')->label('price per')->type('radio')->options([
+            1=>__('content.person'),
+            2=>__('content.group'),
+            3=>__('content.capacity'),
+        ])->default(1);
+        $this->crud->column('type')->label('type')->type('radio')->options([
+            1=>__('content.service'),
+            2=>__('content.excursion'),
+        ])->default(1);
     }
 
     protected function setupCreateOperation()
@@ -95,9 +101,15 @@ class ServiceCrudController extends CrudController
         $this->crud->field('opening_hours')->type('text');
         $this->crud->field('website')->type('text');
         $this->crud->field('is_excursion')->type('boolean');
-        // $this->crud->field('is_per_group')->type('boolean');
-        // $this->crud->field('is_per_person')->type('boolean');
-        // $this->crud->field('is_per_capacity')->type('boolean');
+        $this->crud->field('price_per')->label('price per')->type('radio')->options([
+            1=>__('content.person'),
+            2=>__('content.group'),
+            3=>__('content.capacity'),
+        ])->default(1);
+        $this->crud->field('type')->label('type')->type('radio')->options([
+            1=>__('content.service'),
+            2=>__('content.excursion'),
+        ])->default(1);
     }
 
     protected function setupUpdateOperation()

@@ -17,11 +17,9 @@ class HotelContractFreePolicy extends Model
     protected $guarded = ['id'];
     protected $fillable = [
         'number_of_free_pax',
-        'is_single_room',
-        'is_sharing_double_room',
+        'room',
         'every',
-        'is_pax',
-        'is_room',
+        'type',
         'maximum',
         'hotel_contract_id',
     ];

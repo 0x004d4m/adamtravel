@@ -26,10 +26,8 @@ class Service extends Model
         'country_id',
         'city_id',
         'service_classification_id',
-        'is_excursion',
-        'is_per_group',
-        'is_per_person',
-        'is_per_capacity',
+        'type',
+        'price_per',
     ];
     protected $translatable = [
         'name',

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Requests\HotelContractRequest;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 use Backpack\CRUD\app\Library\Widget;
+use Illuminate\Support\Facades\Log;
 
 class HotelContractCrudController extends CrudController
 {
@@ -181,28 +182,28 @@ class HotelContractCrudController extends CrudController
                     'name'  => 'number_of_free_pax',
                 ],
                 [
-                    'label' => 'single room',
-                    'name'  => 'is_single_room',
-                    'type' => 'boolean',
-                ],
-                [
-                    'label' => 'sharing double room',
-                    'name'  => 'is_sharing_double_room',
-                    'type' => 'boolean',
+                    'label' => 'room',
+                    'closure' => function($entry){
+                        $labels=array(
+                            1=>__('content.singleRoom'),
+                            2=>__('content.sharingDouble'),
+                        );
+                        return $labels[$entry->room];
+                    }
                 ],
                 [
                     'label' => 'every',
                     'name'  => 'every',
                 ],
                 [
-                    'label' => 'pax',
-                    'name'  => 'is_pax',
-                    'type' => 'boolean',
-                ],
-                [
-                    'label' => 'room',
-                    'name'  => 'is_room',
-                    'type' => 'boolean',
+                    'label' => 'type',
+                    'closure' => function($entry){
+                        $labels=array(
+                            1=>__('content.pax'),
+                            2=>__('content.room'),
+                        );
+                        return $labels[$entry->type];
+                    }
                 ],
                 [
                     'label' => 'maximum',

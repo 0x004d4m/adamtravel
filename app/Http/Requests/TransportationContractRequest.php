@@ -31,7 +31,7 @@ class TransportationContractRequest extends FormRequest
             'ending_date' => 'required',
             'driver_accommodation' => 'required|decimal:0,3',
             'commission' => 'required|decimal:0,3',
-            'is_prices_by_route' => 'required',
+            'price_type' => 'required',
         ];
     }
 

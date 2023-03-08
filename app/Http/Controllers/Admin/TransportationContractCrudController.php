@@ -36,7 +36,10 @@ class TransportationContractCrudController extends CrudController
         $this->crud->column('ending_date')->type('date');
         $this->crud->column('driver_accommodation')->type('text');
         $this->crud->column('commission')->type('text');
-        $this->crud->column('is_prices_by_route')->label('prices by route')->type('boolean');
+        $this->crud->column('price_type')->label('price type')->type('radio')->options([
+            1=>__('content.by_person'),
+            2=>__('content.by_route'),
+        ])->default(1);
     }
 
     protected function setupCreateOperation()
@@ -59,7 +62,10 @@ class TransportationContractCrudController extends CrudController
         $this->crud->field('ending_date')->type('date');
         $this->crud->field('driver_accommodation')->default(0)->type('text');
         $this->crud->field('commission')->default(0)->type('text');
-        $this->crud->field('is_prices_by_route')->label('prices by route')->type('boolean');
+        $this->crud->field('price_type')->label('price type')->type('radio')->options([
+            1=>__('content.by_person'),
+            2=>__('content.by_route'),
+        ])->default(1);
     }
 
     protected function setupUpdateOperation()

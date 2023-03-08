@@ -26,7 +26,9 @@ class HotelContractFreePolicyRequest extends FormRequest
     {
         return [
             'number_of_free_pax' => 'required|numeric',
+            'room' => 'required',
             'every' => 'required|numeric',
+            'every' => 'required',
             'maximum' => 'required|numeric',
             'hotel_contract_id' => 'required',
         ];

@@ -19,6 +19,7 @@ class ServicePricing extends Model
         'service_id',
         'pax_less_than',
         'pax_greater_than',
+        'every_number_of_pax',
         'price_per_adult',
         'price_per_child',
     ];

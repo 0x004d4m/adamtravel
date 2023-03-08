@@ -32,6 +32,7 @@ class ServicePricingCrudController extends CrudController
         ]);
         $this->crud->column('pax_less_than')->type('text');
         $this->crud->column('pax_greater_than')->type('text');
+        $this->crud->column('every_number_of_pax')->type('text');
         $this->crud->column('price_per_adult')->type('text');
         $this->crud->column('price_per_child')->type('text');
     }
@@ -50,6 +51,7 @@ class ServicePricingCrudController extends CrudController
         ]);
         $this->crud->field('pax_less_than')->default(0)->label('PAX >=')->type('text');
         $this->crud->field('pax_greater_than')->default(0)->label('PAX <=')->type('text');
+        $this->crud->field('every_number_of_pax')->default(0)->type('text');
         $this->crud->field('price_per_adult')->default(0)->type('text');
         $this->crud->field('price_per_child')->default(0)->type('text');
     }

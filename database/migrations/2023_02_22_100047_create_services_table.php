@@ -26,14 +26,8 @@ return new class extends Migration
             $table->foreign('city_id')->references('id')->on('cities');
             $table->unsignedBigInteger('service_classification_id');
             $table->foreign('service_classification_id')->references('id')->on('service_classifications');
-            $table->boolean('is_excursion')->default(false);
-            $table->boolean('is_per_group')->default(false);
-            $table->integer('group_price_per_adult')->nullable();
-            $table->integer('group_price_per_child')->nullable();
-            $table->boolean('is_per_person')->default(false);
-            $table->boolean('is_per_capacity')->default(false);
-            $table->integer('capacity')->nullable();
-            // $table->integer('capacity_price_per_child')->nullable();
+            $table->enum('type',[1,2])->default(1);// 1=>service/things to do, 2=>excursion
+            $table->enum('price_per',[1,2,3])->default(1);// 1=>person, 2=>group, 3=>capacity
             $table->timestamps();
             $table->softDeletes();
         });

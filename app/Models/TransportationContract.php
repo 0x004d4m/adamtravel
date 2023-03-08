@@ -24,7 +24,7 @@ class TransportationContract extends Model
         'ending_date',
         'driver_accommodation',
         'commission',
-        'is_prices_by_route',
+        'price_type',
     ];
     protected $translatable = [
         'name',
