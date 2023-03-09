@@ -30,7 +30,6 @@ class HotelContractFreePolicyRequest extends FormRequest
             'every' => 'required|numeric',
             'every' => 'required',
             'maximum' => 'required|numeric',
-            'hotel_contract_id' => 'required',
         ];
     }
 

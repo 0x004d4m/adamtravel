@@ -53,7 +53,20 @@ class Service extends Model
 
     public function ServicePricings()
     {
-        return $this->hasMany(ServicePricing::class);
+        return $this->hasOne(ServicePricing::class);
     }
+    
+    public static function boot()
+    {
+        parent::boot();
 
+        self::created(function($model){
+            ServicePricing::create([
+                'service_id'=>$model->id,
+                'every_number_of_pax'=>0,
+                'price_per_adult'=>0,
+                'price_per_child'=>0,
+            ]);
+        });
+    }
 }

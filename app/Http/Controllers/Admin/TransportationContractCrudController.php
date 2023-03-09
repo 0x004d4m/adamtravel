@@ -3,8 +3,10 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Requests\TransportationContractRequest;
+use App\Models\TransportationContract;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 use Backpack\CRUD\app\Library\Widget;
+use Illuminate\Support\Facades\Route;
 
 class TransportationContractCrudController extends CrudController
 {
@@ -79,30 +81,6 @@ class TransportationContractCrudController extends CrudController
 
         Widget::add([
             'type'           => 'relation_table',
-            'name'           => 'transportationContractRoutes',
-            'label'          => 'Routes',
-            'backpack_crud'  => 'transportation-contract-route',
-            'relation_attribute' => 'transportation_contract_id',
-            'button_create' => true,
-            'button_delete' => true,
-            'columns' => [
-                [
-                    'label' => 'route',
-                    'name'  => 'route.name',
-                ],
-                [
-                    'label' => 'car price',
-                    'name'  => 'car_price',
-                ],
-                [
-                    'label' => 'van price',
-                    'name'  => 'van_price',
-                ],
-            ],
-        ])->to('after_content');
-
-        Widget::add([
-            'type'           => 'relation_table',
             'name'           => 'transportationContractSeasons',
             'label'          => 'Seasons',
             'backpack_crud'  => 'transportation-contract-season',
@@ -125,24 +103,57 @@ class TransportationContractCrudController extends CrudController
             ],
         ])->to('after_content');
 
-        Widget::add([
-            'type'           => 'relation_table',
-            'name'           => 'transportationContractServices',
-            'label'          => 'Services',
-            'backpack_crud'  => 'transportation-contract-service',
-            'relation_attribute' => 'transportation_contract_id',
-            'button_create' => true,
-            'button_delete' => true,
-            'columns' => [
-                [
-                    'label' => 'season',
-                    'name'  => 'season.name',
-                ],
-                [
-                    'label' => 'service',
-                    'name'  => 'transportationService.name',
-                ],
-            ],
-        ])->to('after_content');
+        $id=Route::current()->parameter('id');
+        if($id){
+            $TransportationContract = TransportationContract::where('id',$id)->first();
+            if($TransportationContract){
+                if($TransportationContract->price_type==1){
+                    Widget::add([
+                        'type'           => 'relation_table',
+                        'name'           => 'transportationContractServices',
+                        'label'          => 'Services',
+                        'backpack_crud'  => 'transportation-contract-service',
+                        'relation_attribute' => 'transportation_contract_id',
+                        'button_create' => true,
+                        'button_delete' => true,
+                        'columns' => [
+                            [
+                                'label' => 'season',
+                                'name'  => 'season.name',
+                            ],
+                            [
+                                'label' => 'service',
+                                'name'  => 'transportationService.name',
+                            ],
+                        ],
+                    ])->to('after_content');
+                }
+                if($TransportationContract->price_type==2){
+                    Widget::add([
+                        'type'           => 'relation_table',
+                        'name'           => 'transportationContractRoutes',
+                        'label'          => 'Routes',
+                        'backpack_crud'  => 'transportation-contract-route',
+                        'relation_attribute' => 'transportation_contract_id',
+                        'button_create' => true,
+                        'button_delete' => true,
+                        'columns' => [
+                            [
+                                'label' => 'route',
+                                'name'  => 'route.name',
+                            ],
+                            [
+                                'label' => 'car price',
+                                'name'  => 'car_price',
+                            ],
+                            [
+                                'label' => 'van price',
+                                'name'  => 'van_price',
+                            ],
+                        ],
+                    ])->to('after_content');
+                }
+            }
+        }
     }
 }

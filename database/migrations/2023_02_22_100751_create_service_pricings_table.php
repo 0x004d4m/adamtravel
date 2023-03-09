@@ -17,8 +17,6 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('service_id');
             $table->foreign('service_id')->references('id')->on('services');
-            $table->integer('pax_less_than')->nullable();
-            $table->integer('pax_greater_than')->nullable();
             $table->integer('every_number_of_pax')->nullable();
             $table->integer('price_per_adult');
             $table->integer('price_per_child');

@@ -35,7 +35,7 @@ class HotelContract extends Model
 
     public function hotelContractFreePolicies()
     {
-        return $this->hasMany(HotelContractFreePolicy::class);
+        return $this->hasOne(HotelContractFreePolicy::class);
     }
 
     public function hotelContractHigherRooms()
@@ -66,5 +66,19 @@ class HotelContract extends Model
     public function hotelContractSeasons()
     {
         return $this->hasMany(HotelContractSeason::class);
+    }
+
+    public static function boot()
+    {
+        parent::boot();
+
+        self::created(function($model){
+            HotelContractFreePolicy::create([
+                'number_of_free_pax'=>0,
+                'every'=>0,
+                'maximum'=>0,
+                'hotel_contract_id'=>$model->id,
+            ]);
+        });
     }
 }

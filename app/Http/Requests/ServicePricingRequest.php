@@ -25,10 +25,7 @@ class ServicePricingRequest extends FormRequest
     public function rules()
     {
         return [
-            'service_id' => 'required',
-            'pax_less_than' => 'required|decimal:0,1',
-            'pax_greater_than' => 'required|decimal:0,1',
-            'every_number_of_pax' => 'required|numeric',
+            'every_number_of_pax' => 'sometimes|numeric',
             'price_per_adult' => 'required|decimal:0,1',
             'price_per_child' => 'required|decimal:0,1',
         ];

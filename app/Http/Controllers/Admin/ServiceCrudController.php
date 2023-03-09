@@ -3,8 +3,10 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Requests\ServiceRequest;
+use App\Models\Service;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 use Backpack\CRUD\app\Library\Widget;
+use Illuminate\Support\Facades\Route;
 
 class ServiceCrudController extends CrudController
 {
@@ -53,14 +55,14 @@ class ServiceCrudController extends CrudController
             'model' => 'App\Models\ServiceClassification'
         ]);
         $this->crud->column('is_excursion')->type('boolean');
+        $this->crud->column('type')->label('type')->type('radio')->options([
+            1=>__('content.service'),
+            2=>__('content.excursion'),
+        ])->default(1);
         $this->crud->column('price_per')->label('price per')->type('radio')->options([
             1=>__('content.person'),
             2=>__('content.group'),
             3=>__('content.capacity'),
-        ])->default(1);
-        $this->crud->column('type')->label('type')->type('radio')->options([
-            1=>__('content.service'),
-            2=>__('content.excursion'),
         ])->default(1);
     }
 
@@ -101,14 +103,14 @@ class ServiceCrudController extends CrudController
         $this->crud->field('opening_hours')->type('text');
         $this->crud->field('website')->type('text');
         $this->crud->field('is_excursion')->type('boolean');
+        $this->crud->field('type')->label('type')->type('radio')->options([
+            1=>__('content.service'),
+            2=>__('content.excursion'),
+        ])->default(1);
         $this->crud->field('price_per')->label('price per')->type('radio')->options([
             1=>__('content.person'),
             2=>__('content.group'),
             3=>__('content.capacity'),
-        ])->default(1);
-        $this->crud->field('type')->label('type')->type('radio')->options([
-            1=>__('content.service'),
-            2=>__('content.excursion'),
         ])->default(1);
     }
 
@@ -121,32 +123,61 @@ class ServiceCrudController extends CrudController
     {
         $this->setupListOperation();
 
+        $fields=[];
+        $id=Route::current()->parameter('id');
+        if($id){
+            $Service = Service::where('id',$id)->first();
+            if($Service){
+                if($Service->price_per==1){
+                    $fields=[
+                        [
+                            'label' => 'per adult',
+                            'name'  => 'price_per_adult',
+                        ],
+                        [
+                            'label' => 'per child',
+                            'name'  => 'price_per_child',
+                        ]
+                    ];
+                }
+                if($Service->price_per==2){
+                    $fields=[
+                        [
+                            'label' => 'per adult',
+                            'name'  => 'price_per_adult',
+                        ],
+                        [
+                            'label' => 'per child',
+                            'name'  => 'price_per_child',
+                        ]
+                    ];
+                }
+                if($Service->price_per==3){
+                    $fields=[
+                        [
+                            'label' => 'every number of pax',
+                            'name'  => 'every_number_of_pax',
+                        ],
+                        [
+                            'label' => 'per adult',
+                            'name'  => 'price_per_adult',
+                        ],
+                        [
+                            'label' => 'per child',
+                            'name'  => 'price_per_child',
+                        ]
+                    ];
+                }
+            }
+        }
+
         Widget::add([
-            'type'           => 'relation_table',
+            'type'           => 'relation_panel',
             'name'           => 'ServicePricings',
             'label'          => 'Prices',
             'backpack_crud'  => 'service-pricing',
             'relation_attribute' => 'service_id',
-            'button_create' => true,
-            'button_delete' => true,
-            'columns' => [
-                [
-                    'label' => 'pax >=',
-                    'name'  => 'pax_less_than',
-                ],
-                [
-                    'label' => 'pax <=',
-                    'name'  => 'pax_greater_than',
-                ],
-                [
-                    'label' => 'per adult',
-                    'name'  => 'price_per_adult',
-                ],
-                [
-                    'label' => 'per child',
-                    'name'  => 'price_per_child',
-                ]
-            ],
+            'fields' => $fields,
         ])->to('after_content');
     }
 }

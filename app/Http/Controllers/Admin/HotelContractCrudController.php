@@ -170,50 +170,6 @@ class HotelContractCrudController extends CrudController
 
         Widget::add([
             'type'           => 'relation_table',
-            'name'           => 'hotelContractFreePolicies',
-            'label'          => 'Free Policy',
-            'backpack_crud'  => 'hotel-contract-free-policy',
-            'relation_attribute' => 'hotel_contract_id',
-            'button_create' => true,
-            'button_delete' => true,
-            'columns' => [
-                [
-                    'label' => 'number of free pax',
-                    'name'  => 'number_of_free_pax',
-                ],
-                [
-                    'label' => 'room',
-                    'closure' => function($entry){
-                        $labels=array(
-                            1=>__('content.singleRoom'),
-                            2=>__('content.sharingDouble'),
-                        );
-                        return $labels[$entry->room];
-                    }
-                ],
-                [
-                    'label' => 'every',
-                    'name'  => 'every',
-                ],
-                [
-                    'label' => 'type',
-                    'closure' => function($entry){
-                        $labels=array(
-                            1=>__('content.pax'),
-                            2=>__('content.room'),
-                        );
-                        return $labels[$entry->type];
-                    }
-                ],
-                [
-                    'label' => 'maximum',
-                    'name'  => 'maximum',
-                ],
-            ],
-        ])->to('after_content');
-
-        Widget::add([
-            'type'           => 'relation_table',
             'name'           => 'hotelContractNotes',
             'label'          => 'Notes',
             'backpack_crud'  => 'hotel-contract-note',
@@ -293,6 +249,48 @@ class HotelContractCrudController extends CrudController
                 [
                     'label' => 'notes',
                     'name'  => 'notes',
+                ],
+            ],
+        ])->to('after_content');
+
+        Widget::add([
+            'type'           => 'relation_panel',
+            'name'           => 'hotelContractFreePolicies',
+            'label'          => 'Free Policy',
+            'backpack_crud'  => 'hotel-contract-free-policy',
+            'relation_attribute' => 'hotel_contract_id',
+            'fields' => [
+                [
+                    'label' => 'number of free pax',
+                    'name'  => 'number_of_free_pax',
+                ],
+                [
+                    'label' => 'room',
+                    'closure' => function($entry){
+                        $labels=array(
+                            1=>__('content.singleRoom'),
+                            2=>__('content.sharingDouble'),
+                        );
+                        return $labels[$entry->room];
+                    }
+                ],
+                [
+                    'label' => 'every',
+                    'name'  => 'every',
+                ],
+                [
+                    'label' => 'type',
+                    'closure' => function($entry){
+                        $labels=array(
+                            1=>__('content.pax'),
+                            2=>__('content.room'),
+                        );
+                        return $labels[$entry->type];
+                    }
+                ],
+                [
+                    'label' => 'maximum',
+                    'name'  => 'maximum',
                 ],
             ],
         ])->to('after_content');
