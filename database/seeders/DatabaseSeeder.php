@@ -12,6 +12,7 @@ class DatabaseSeeder extends Seeder
             UsersSeeder::class,
             PermissionsSeeder::class,
             LandingPageSeeder::class,
+            DemoSeeder::class,
         ]);
     }
 }

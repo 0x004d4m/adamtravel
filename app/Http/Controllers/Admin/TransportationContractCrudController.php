@@ -39,7 +39,7 @@ class TransportationContractCrudController extends CrudController
         $this->crud->column('driver_accommodation')->type('text');
         $this->crud->column('commission')->type('text');
         $this->crud->column('price_type')->label('price type')->type('radio')->options([
-            1=>__('content.by_person'),
+            1=>__('content.by_service'),
             2=>__('content.by_route'),
         ])->default(1);
     }
@@ -65,7 +65,7 @@ class TransportationContractCrudController extends CrudController
         $this->crud->field('driver_accommodation')->default(0)->type('text');
         $this->crud->field('commission')->default(0)->type('text');
         $this->crud->field('price_type')->label('price type')->type('radio')->options([
-            1=>__('content.by_person'),
+            1=>__('content.by_service'),
             2=>__('content.by_route'),
         ])->default(1);
     }

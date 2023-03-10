@@ -10,7 +10,7 @@ return [
     'team_text'=>'Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.',
     'sites'=>'Checkout Our Sites',
     'sites_text'=>'Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.',
-    'by_person'=>'By Person',
+    'by_service'=>'By Service',
     'by_route'=>'By Route',
     'person'=>'person',
     'group'=>'group',
