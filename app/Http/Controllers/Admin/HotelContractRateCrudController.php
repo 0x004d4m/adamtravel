@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Requests\HotelContractRateRequest;
+use App\Models\HotelContractSeason;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 
 class HotelContractRateCrudController extends CrudController
@@ -65,7 +66,10 @@ class HotelContractRateCrudController extends CrudController
             'name' => 'season_id',
             'entity' => 'season',
             'attribute' => "name",
-            'model' => 'App\Models\Season'
+            'model' => 'App\Models\Season',
+            'options'   => (function ($query) {
+                return $query->whereIn('id', HotelContractSeason::where('hotel_contract_id',$_GET['hotel_contract_id']??null)->pluck('season_id'))->get();
+            }),
         ]);
         $this->crud->field('double')->label('Double Room')->default(0)->type('text');
         $this->crud->field('single_supplement')->default(0)->type('text');

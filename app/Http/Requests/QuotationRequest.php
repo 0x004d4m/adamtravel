@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class TransportationPlanRequest extends FormRequest
+class QuotationRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -25,14 +25,8 @@ class TransportationPlanRequest extends FormRequest
     public function rules()
     {
         return [
-            'transportation_plan_default_id' => 'required',
-            'vehicle_type_id' => 'required',
-            'transportation_company_id' => 'required',
-            'people_less_than' => 'required|numeric',
-            'people_greater_than' => 'required|numeric',
-            'free_pax_in_dbl' => 'required|numeric',
-            'free_pax_in_sgl' => 'required|numeric',
-            'number_of_vehicles' => 'required|numeric',
+            'user_id' => 'required',
+            'programs' => 'required|max:1',
         ];
     }
 

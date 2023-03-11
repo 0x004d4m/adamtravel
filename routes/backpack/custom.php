@@ -87,4 +87,7 @@ Route::group([
     Route::crud('inclusion-default', 'InclusionDefaultCrudController');
     Route::crud('hotel-contract-season', 'HotelContractSeasonCrudController');
     Route::get('City/Entrances', 'EntranceCrudController@getEntrances');
+    Route::crud('quotation', 'QuotationCrudController');
+    Route::crud('quotation-program', 'QuotationProgramCrudController');
+    Route::crud('transportation-plan-default', 'TransportationPlanDefaultCrudController');
 }); // this should be the absolute last line of this file

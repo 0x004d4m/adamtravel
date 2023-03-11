@@ -18,7 +18,7 @@ class TransportationPlan extends Model
     protected $table = 'transportation_plans';
     protected $guarded = ['id'];
     protected $fillable = [
-        'name',
+        'transportation_plan_default_id',
         'is_default',
         'notes',
         'people_less_than',
@@ -32,6 +32,11 @@ class TransportationPlan extends Model
     protected $translatable = [
         'name',
     ];
+
+    public function transportationPlanDefault()
+    {
+        return $this->belongsTo(TransportationPlanDefault::class);
+    }
 
     public function vehicleType()
     {

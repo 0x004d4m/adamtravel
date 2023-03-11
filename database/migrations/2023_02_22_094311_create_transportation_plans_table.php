@@ -15,8 +15,9 @@ return new class extends Migration
     {
         Schema::create('transportation_plans', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('transportation_plan_default_id')->nullable();
+            $table->foreign('transportation_plan_default_id')->references('id')->on('transportation_plan_defaults');
             $table->boolean('is_default')->default(false);
-            $table->json('name');
             $table->text('notes')->nullable();
             $table->integer('people_less_than');
             $table->integer('people_greater_than');

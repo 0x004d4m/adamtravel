@@ -29,4 +29,9 @@ class Program extends Model
     {
         return $this->hasMany(ProgramRoute::class);
     }
+
+    public function quotations()
+    {
+        return $this->belongsToMany(Quotation::class,'quotation_programs','program_id','quotation_id');
+    }
 }

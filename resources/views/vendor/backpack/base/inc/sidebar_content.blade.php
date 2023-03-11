@@ -93,7 +93,7 @@
         <li class="nav-item"><a class="nav-link" href="{{ backpack_url('visit') }}"> Visits</a></li>
         <li class="nav-item"><a class="nav-link" href="{{ backpack_url('route') }}"> Routes</a></li>
         <li class="nav-item"><a class="nav-link" href="{{ backpack_url('program') }}"> Programs</a></li>
-        <li class="nav-item"><a class="nav-link" href="{{ backpack_url('transportation-plan') }}"> Transportation plans</a></li>
+        <li class="nav-item"><a class="nav-link" href="{{ backpack_url('transportation-plan-default') }}"> Transportation plans</a></li>
         <li class="nav-item"><a class="nav-link" href="{{ backpack_url('cover-page') }}"> Cover pages</a></li>
     </ul>
 </li>
@@ -101,5 +101,7 @@
 <li class="nav-item nav-dropdown">
     <a class="nav-link nav-dropdown-toggle" href="#"><i class="nav-icon la la-file-alt"></i> Quotation</a>
     <ul class="nav-dropdown-items">
+        <li class="nav-item"><a class="nav-link" href="{{ backpack_url('quotation') }}"> Quotations</a></li>
+        <li class="nav-item"><a class="nav-link" href="{{ backpack_url('quotation-program') }}"> Quotation programs</a></li>
     </ul>
 </li>

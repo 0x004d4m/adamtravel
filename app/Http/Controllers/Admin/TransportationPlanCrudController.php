@@ -22,8 +22,6 @@ class TransportationPlanCrudController extends CrudController
 
     protected function setupListOperation()
     {
-        $this->crud->column('is_default')->label('default')->type('boolean');
-        $this->crud->column('name')->type('text');
         $this->crud->column('people_less_than')->label('PAX >=')->type('text');
         $this->crud->column('people_greater_than')->label('PAX <=')->type('text');
         $this->crud->column('free_pax_in_dbl')->type('text');
@@ -55,8 +53,11 @@ class TransportationPlanCrudController extends CrudController
         $this->crud->removeSaveAction('save_and_edit');
         $this->crud->removeSaveAction('save_and_new');
 
-        $this->crud->field('is_default')->label('default')->type('boolean');
-        $this->crud->field('name')->type('text');
+        $this->crud->addField([
+            'type' => "hidden",
+            'name' => 'transportation_plan_default_id',
+            'default' => $_GET['transportation_plan_default_id']??null,
+        ]);
         $this->crud->field('people_less_than')->label('PAX >=')->default(0)->type('text');
         $this->crud->field('people_greater_than')->label('PAX <=')->default(0)->type('text');
         $this->crud->field('free_pax_in_dbl')->default(0)->type('text');
